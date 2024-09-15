@@ -1,5 +1,5 @@
 ---
-title: "| RESEARCH PROTOCOL\n| \n| Study Repo Template \n"
+title: "| RESEARCH PROTOCOL\n| \n| Comparative Effectiveness of Different Dosing Schedules of Pneumococcal Conjugate Vaccines:\n Target Trial Emulation \n"
 fontsize: 12pt
 geometry: margin=1in
 output:
@@ -57,8 +57,8 @@ csl: bmj.csl
 ---
 
 ```{r setup, include=FALSE}
-library(LegendT2dm)
-knitr::opts_chunk$set(echo = TRUE, warning=FALSE)
+#library(LegendT2dm)
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message = FALSE)
 options(kableExtra.latex.load_packages = FALSE)
 library(kableExtra)
 library(dplyr)
@@ -81,6 +81,20 @@ latex_table_font_size <- 8
 ```{r abbreviations, echo=FALSE}
 abbreviations <- readr::read_delim(col_names = FALSE, delim = ";", trim_ws = TRUE, file = "
   CDM; Common data model
+  ICD-10; International Classification of Diseases, Tenth Revision
+  ICH; International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use
+  IPD; Invasive pneumococcal diseases
+  NIP; National Immunization Program
+  OHDSI; Observational Health Data Sciences and Informatics 
+  PCV; Pneumococcal conjugate vaccine
+  PCV7; 7-valent pneumococcal conjugate vaccine
+  PCV10; 10-valent pneumococcal conjugate vaccine
+  PCV13; 13-valent pneumococcal conjugate vaccine
+  PPSV23; 23-valent pneumococcal polysaccharide vaccine
+  RCT; Randomized controlled trial
+  SAGE; Strategic Advisory Group of Experts on Immunization
+  TTE;Target trial emulation
+  WHO;World Health Organization
 ")
 
 tab <- kable(abbreviations, col.names = NULL, linesep = "", booktabs = TRUE)
@@ -102,7 +116,8 @@ if (knitr::is_latex_output()) {
 ```{r parties, echo=FALSE}
 parties <- readr::read_delim(col_names = TRUE, delim = ";", trim_ws = TRUE, file = "
   Investigator; Institution/Affiliation
-  Joe Bruin *; Department of Biostatistics, University of California, Los Angeles, Los Angeles, CA, USA
+  Fan Bu*; University of Michigan, Ann Arbor, MI, USA
+  Kayoko Shioda *; Boston University School of Public Health, Boston, MA, USA
 ")
 
 tab <- kable(parties, booktabs = TRUE, linesep = "") %>%
@@ -121,27 +136,31 @@ if (knitr::is_latex_output()) {
 ## Disclosures
 
 This study is undertaken within Observational Health Data Sciences and Informatics (OHDSI), an open collaboration.
-**JB** is a fictional character.
+**FB** and **KS** received funding from the Bill and Melinda Gates Foundation (BMGF). 
 
 \clearpage
 
 # Abstract
 
 **Background and Significance**: 
+Pneumococcal conjugate vaccines (PCVs) prevent morbidity and mortality among children and adults, but they are among the most expensive vaccines, competing for limited public health resources.[@noauthor_vfc_2023]
+To address this challenge, the World Health Organization (WHO) Strategic Advisory Group of Experts on Immunization (SAGE) has been gathering data to evaluate the potential impact of switching from the existing 2+1 or 3+0 PCV dosing schedules to the 1+1 schedule and plans to provide a recommendation in early 2025. 
+Randomized controlled trials (RCTs) are the gold standard for comparing dosing schedules but are often resource-intensive and may only include small, selected subpopulations from certain regions (e.g., high-income countries, urban settings) over short periods. Instead, we propose to use a novel causal inference method using observational data, called target trial emulation (TTE). [@hernan_using_2016,@hernan_target_2022,@hernan_specifying_2016]
+We will implement observational studies that explicitly emulate a hypothetical RCT using large-scale observational healthcare data. 
 
 **Study Aims**: 
+Our study aims to evaluate the comparative effectiveness of different PCV13 dosing schedules among children under five years of age, using OHDSI network data sources. 
 
 **Study Description**: 
 
-* **Population**: 
+* **Population**: Our target population consists of vaccine-eligible children born between 2010 and 2023, who received at least one PCV13 by the time they turn 15 months of age. Within the US, the study will cover 37 states that do not have universal childhood vaccination programs (thus we will exclude children residing in Alaska, Idaho, Massachusetts, Maine, North Dakota, New Hampshire, New Mexico, Oregon, Rhode Island, Vermont, Washington, Wisconsin, Wyoming).
 
-* **Comparators**:
+* **Comparators**: Our study will evaluate the impact of different dosing schedules of the pneumococcal conjugate vaccine (PCV), specifically the PCV13. We will compare the recommended dosing schedule (3+1 doses: three doses administered in the first year of life followed by a booster shot in the second year) with reduced dosing schedules (e.g., 3+0, 2+1, 2+0, 1+1, 1+0, and 0+1 doses). Additionally, we will analyze the comparative effects of alternate timings for each dose (e.g., comparing two 2-dose schedules: one administered at 2 and 12 months of age versus another administered at 6 and 12 months of age) if there are enough variations in the actual timing of doses followed by children.
   
-* **Outcomes**:
-  
-* **Design**: 
+* **Outcomes**: The primary outcome measure is the estimated cumulative risk of the selected clinical outcome among children under five years of age in the U.S., assuming that all vaccine-eligible children followed each of the specific PCV dosing schedules (e.g., 3+1, 2+1, 1+1). The secondary outcome measures include trends in adherence to the recommended PCV dosing schedule (3+1 schedule) in the U.S. from 2010 to 2023 among sub-populations (e.g., different age groups and geographic areas).
 
-* **Timeframe**: 
+  
+* **Design**: We will apply one of the TTE approaches, clone-censor weight analysis, [@maringe_reflection_2020,@zhao_versatility_2021,@shioda_comparative_2024,@butler_estimating_2021] to compare the effectiveness of different numbers of PCV doses and the timing of each dose among children under five years of age. 
 
 \clearpage
 
@@ -166,6 +185,7 @@ if (knitr::is_latex_output()) {
 ```{r dates, echo=FALSE}
 dates <- readr::read_delim(col_names = TRUE, delim = ";", trim_ws = TRUE, file = "
   Milestone; Planned / actual date
+  Draft of study protocol; 09/20/2024
 ")
 
 tab <- kable(dates, booktabs = TRUE, linesep = "")
@@ -179,33 +199,149 @@ if (knitr::is_latex_output()) {
 
 # Rationale and Background
 
+Pneumococcal conjugate vaccines (PCVs) prevent morbidity and mortality among children and adults, but they are among the most expensive vaccines, competing for limited public health resources.[@noauthor_vfc_2023]
+To address this challenge, the World Health Organization (WHO) Strategic Advisory Group of Experts on Immunization (SAGE) has been gathering data to evaluate the potential impact of switching from the existing 2+1 or 3+0 PCV dosing schedules to the 1+1 schedule and plans to provide a recommendation in early 2025.
+Randomized controlled trials (RCTs) are the gold standard for comparing dosing schedules but are often resource-intensive and may only include small, selected subpopulations from certain regions (e.g., high-income countries, urban settings) over short periods. 
+Instead, we propose to use a novel causal inference method using observational data, called target trial emulation (TTE).[@hernan_using_2016,@hernan_target_2022,@hernan_specifying_2016]
+We will design observational studies that explicitly emulate a hypothetical RCT using large nationwide data in the U.S. 
+Using TTE, we will estimate the impact of switching from the currently recommended schedule (3+1 schedule: three doses administered in the first year of life followed by a booster shot in the second year) to reduced doses (e.g., 2+1, 1+1, 1+0) on various clinical outcomes, such as pneumonia and meningitis, among the general pediatric population (aged ≤ 59 months) across the country. 
+In the U.S., the 7-valent PCV (PCV7) was introduced in the childhood routine immunization program in 2000, and the product was switched to PCV13 in 2010. This TTE approach is an affordable alternative to RCTs with various practical and methodological advantages.[@hernan_using_2016,@hernan_target_2022,@hernan_specifying_2016] 
+TTE can be readily applied to countries with existing data but lacking resources for a full RCT to guide vaccine policies based on local evidence.
+
+Pneumococcal conjugate vaccines (PCVs) are among the most expensive vaccines.[@noauthor_vfc_2023]
+As many countries transition from financial support from international donors like Vaccine Alliance (GAVI), it is crucial for decision-makers to review current vaccine policies based on scientific evidence and allocate limited public health resources appropriately. Generating scientific evidence based on local data is vital, as countries vary in disease burden, pneumococcus serotype distributions, population characteristics, and transmission levels, all of which may alter the optimal dosing schedule. [@de2021declines]
+Therefore, we propose to conduct a TTE study, which will allow us to emulate a hypothetical RCT using existing surveillance data.[@hernan_using_2016] This approach is a cost-effective alternative to RCTs for generating evidence based on local data to guide vaccine policies.
+
+TTE studies are advantageous because they can evaluate PCV dosing schedules among the general population, whereas RCTs often focus on small, limited study populations. 
+This is an timely moment to conduct this study, as the WHO SAGE is scheduled to discuss this specific issue in early 2025. 
+We will make the analytic protocols and tools developed in this study publicly available (e.g., R packages, results R ShinyApps), which can be readily applied to evaluating dosing schedules for other vaccines.
+
+
 # Study Objectives
+
+Our **primary objective** is to compare the effectiveness of different PCV dosing schedules in preventing various clinical outcomes, such as pneumonia and meningitis, among children under five years old. Our **secondary objective** is to describe the trend in adherence to the recommended PCV schedules across various sub-populations (e.g., race/ethnicity, geographic areas) over time. 
+
 
 # Research Methods
 
+Using existing observational healthcare databases across the OHDSI network, we will apply one of the TTE approaches, clone-censor weight analysis,[@maringe_reflection_2020,@zhao_versatility_2021,@shioda_comparative_2024,@butler_estimating_2021] to compare the effectiveness of different numbers of PCV doses and the timing of each dose among children under five years of age in the U.S. Clone-censor weight analysis offers practical and analytical advantages.[@maringe_reflection_2020,@zhao_versatility_2021]  
+This method allows us to emulate a hypothetical RCT, where participants are assigned to different PCV dosing schedules, such as 3+1 and 1+1 schedules. This method’s major advantage is the ability to compare dosing schedules for the entire course of vaccination, including interdose intervals (e.g., between the first and second doses or between the primary series and the booster dose).[@shioda_comparative_2024]
+
+The clone-censor weight analysis will emulate a hypothetical trial by recruiting all individuals in the target population and assigning them to each compared dosing schedule, a process referred to as ``cloning''.[@maringe_reflection_2020,@zhao_versatility_2021] 
+Follow-up starts on the date of the first PCV dose and ends at the earliest occurrence of the following: the clinical outcome, the end of the study period, the child’s fifth birthday, or non-adherence to the assigned dosing schedule. 
+
+
 ## Study Design
 
-This study uses `CohortMethod` [@Schuemie2020-fa].
+
+This will be a retrospective observational study, emulating a hypothetical RCT through clone-censor weight analysis (a target trial emulation method). 
 
 ## Data Sources
 
+We will execute this study as an OHDSI network study.
+All data partners within OHDSI are encouraged to participate voluntarily and can do so conveniently, because of the community's shared Observational Medical Outcomes Partnership (OMOP) common data model (CDM) and OHDSI tool-stack.
+We are actively recruiting OHDSI community data partner through OHDSI’s standard recruitment process, which includes protocol publication on OHDSI’s GitHub, an announcement in OHDSI’s research forum, presentation at the weekly OHDSI all-hands-on meeting and direct requests to data holders.
+
+
 ## Study Population
 
+Vaccine-eligible children born between 2010 (when the PCV13 was introduced into the routine childhood immunization program in the U.S.) and 2023, who received at least one dose of PCV13 by the time they turn 15 months of age. In the U.S., since 13 states have universal childhood vaccination programs so insurance claims records would be incomplete, the study will only cover 37 states (states other than Alaska, Idaho, Massachusetts, Maine, North Dakota, New Hampshire, New Mexico, Oregon, Rhode Island, Vermont, Washington, Wisconsin, and Wyoming). 
+
 ## Exposure Comparators
+We will compare the effectiveness of the recommended PCV 3+1 schedule (three doses in the first year of life and a booster in the second year) and reduced dosing schedules (e.g., 2+1, 2+0, 1+1, 1+0).
+
+The recommended dosing schedule consists of four doses in total, administered at 4, 6, and 12–15 months of age with actuall vaccination dates between 7 days before and 21 days after that exact age. [@butler2024characterizing] See Figure \@ref(fig:dosing-schedule) for an illustration of the timeline.  
+
+Specifically, we consider these dosing schedules as standard: 
+
+- 1st dose: 2 months of age, which is 38 – 92 days of age
+- 2nd dose: 4 months of age, which is 113 – 141 days of age (i.e., from 120-7 days to 120+21 days)
+- 3rd dose: 6 months of age, which is 173 – 201 days of age (= from 180-7 days to 180+21 days)
+- 4th dose: 12 – 15 months of age, which is 358 – 476 days of age (= from 365-7 days to 365+90+21 days
+
+
+```{r dosing-schedule, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Standard PCV dosing schedule. From Butler et. al. 2024. ', fig.pos='H'}
+if (knitr::is_latex_output()) {
+  knitr::include_graphics("PCVDosingSchedule.jpg")
+} else {
+  knitr::include_graphics("PCVDosingSchedule.jpg")
+}
+```
+
+Missing doses would be considered as following a reduced dosing schedule, and deviation from the recommended administration time windows will be considered as off schedule. 
+
+As a secondary analysis, we will also characterize various timings of each dose, based on actual variations observed in the data. 
+
 
 ## Outcomes {#outcomes}
 
+We will evaluate the comparative effectiveness of different PCV dosing schedules against the following clinical outcomes among children under five years of age in the U.S.:
+
+- Hospitalization and/or death due to all-cause pneumonia (ICD-10 code: J12-J18)
+- Hospitalization and/or death due to pneumococcal meningitis (ICD-10 code: G00.1)
+- Hospitalization and/or death due to all-cause meningitis (ICD-10 code: G00, G02, G03)
+- Hospitalization due to invasive pneumococcal diseases (IPD) (ICD-10 code: A40, G00.1, J13) 
+
+Pneumococcal pneumonia is not included because the ICD-10 code [J13] is rarely used due to limited testing. Instead, we will use all-cause pneumonia, which was used as an outcome in previous studies for this reason. [@de2021declines,@shioda2020impact,@shioda2019challenges,@warren2017impact,@prunas2024estimated]
+
+**Timing of outcomes**: We will consider clinical outcomes that occurred between 2 months (60 days) and 5 years (365 * 5 days) of age. 
+We exclude the first two months of life for the following reasons [@de2021declines]: 
+First, it is not expected that PCV will have a direct effect in children in this age group because they are not old enough to be vaccinated and many pneumonia cases in this age group are thought to be caused by maternally-acquired bacteria rather than pneumococcus.
+Second, we found that countries use different strategies to code causes of death for neonates. Some countries exclusively use the ICD-10 P chapter for neonates, while others use a mix of P codes and other chapters. This coding practice for neonates also changed over time in some countries.
+Third, many of the children included in this age group had a recorded age of exactly zero days, so it was not clear whether these children were truly neonates or misassigned to this age group. 
+
 ## Analysis
 
+We will use a TTE approach, clone-censor weight analysis,[@maringe_reflection_2020,@zhao_versatility_2021,@shioda_comparative_2024] to understand how the different numbers of PCV doses and the timing of each dose may change the risk of the aforementioned clinical outcomes among children under five years of age. 
+This method mimics a per-protocol analysis of a RCT in which individuals are randomly allocated to alternative dosing schedules.
+
+**Cloning process in the clone-censor weight analysis**: 
+For the comparison of the 3+1 schedule (recommended schedule) and the reduced dosing schedule, we will create copies of the longitudinal dataset corresponding to each dosing schedule of interest. This process is referred to as “cloning” in the TTE framework.[@maringe_reflection_2020,@zhao_versatility_2021,@shioda_comparative_2024]
+In each copy, individuals will be followed up from the index date (i.e., the day each individual becomes eligible to receive the vaccine) until the earliest occurrence of the following: the clinical outcome, the end of the study period, the child’s fifth birthday, or non-adherence to the assigned dosing schedule. This method addresses measured confounding at baseline because the copies of each observation are identical at the start of follow-up. In each schedule-specific copy, a vaccine recipient who does not follow a given dosing schedule will be considered non-adherent and will be censored at the time their dosing schedule differs from the specified schedule.
+
+**Inverse probability of censoring weights in the clone-censor weight analysis**: 
+Informative censoring due to dosing schedule non-adherence will be addressed with inverse probability of censoring weights.[@maringe_reflection_2020,@zhao_versatility_2021,@shioda_comparative_2024] 
+We will fit a Cox proportional hazards model to the longitudinal dataset under each dosing schedule, where the outcome of being censored is adjusted for the aforementioned covariates. Subsequently, this model will be used to estimate the probability of remaining uncensored at each person’s event time. The reciprocal of this probability will serve as the censoring weights. These weights are designed to up-weight individuals who remain adherent to the dosing schedule at each time to have the same covariate distribution as the entire study population. This process will allow us to create a weighted population that represents the entire study population had all individuals remained adherent to the certain dosing schedule throughout follow-up.
+
+**Evaluation of comparative effectiveness in the clone-censor weight analysis**: 
+For each of the schedule-specific copies, we will calculate the weighted cumulative risk of each clinical outcome had the total study population followed the corresponding dosing schedule. To compare the effectiveness of different dosing schedules, we will calculate ratios of the weighted cumulative risks, setting the recommended protocol (3+1) as a reference. We will compute 95% confidence intervals using a nonparametric bootstrap. 
+We will evaluate if the comparative effectiveness differs across age groups (<12, 12-23, 24-59 months), race/ethnicity groups, geographic areas, and over time (from 2010-2023).
+
+
+## Study Hypotheses
+
+We hypothesize that the reduced PCV doses can maintain low incidences of IPD, all-cause pneumonia hospitalization, and deaths among children <5 years of age. 
+Comparative effectiveness of the recommended and reduced dosing schedules may differ by detailed age groups (<12, 12-23, 24-59 months), geographic areas, and over time. 
+
+
 # Sample Size and Study Power {#sample-size}
+
+This study utilizes data sources from OHDSI data partners, and as such, there is no prospective sample collection or traditional sample size calculation. 
+The analysis will include all available data for all eligible children within the specified time frame (2010-2023) that meet the inclusion criteria. Thus, the sample size is effectively determined by the availability of data rather than a predefined number. This approach ensures that our analysis is as inclusive and comprehensive as possible, enhancing the validity and generalizability of the study findings. 
+
 
 # Strengths and Limitations {#strengths-limitations}
 
 # Protection of Human Subjects
 
+This study is to be conducted in accordance with applicable US federal regulations and institutional policies, which are based on federal regulations, guidance, and International Council for Harmonisation of Technical Requirements for Pharmaceuticals for Human Use (ICH) Good Clinical Practice guidelines.
+
+
+To protect the privacy of participants, any shared data will be de-identified where possible. The inclusion of the date of birth will be handled with additional safeguards to ensure confidentiality. Data sharing agreements will stipulate the conditions under which PII can be accessed and used, ensuring compliance with privacy standards and regulations. 
+
+All study-related documentation and data will be handled in accordance with institutional and federal regulations to ensure accuracy, integrity, and confidentiality of data. Study records will be retained for at least seven years after the completion of the study, or as otherwise required by institutional or federal guidelines.
+
 # Management and Reporting of Adverse Events and Adverse Reactions
 
+This study uses coded data that already exist in electronic databases.
+In these types of databases, it is not usually possible to link (i.e., identify a potential causal association between) a particular product and medical event for any specific individual.
+Thus, the minimum criteria for reporting an adverse event (i.e., identifiable patient, identifiable reporter, a suspect product and event) are not available and adverse events are not reportable as individual adverse event reports.
+The study results will be assessed for medically important findings.
+
 # Plans for Disseminating and Communicating Study Results
+
+We plan to summarize findings in manuscripts and meeting presentations. 
+We will make all study results publicly available using interactive RShinyApps, share study findings at OHDSI all-hands meetings and at the OHDSI global symposiums. 
 
 \clearpage
 
@@ -222,13 +358,33 @@ This study uses `CohortMethod` [@Schuemie2020-fa].
 # Exposure Cohort Definitions
 
 ```{r appendix,  echo=FALSE, results="asis", warning=FALSE, message=FALSE}
-source("https://raw.githubusercontent.com/ohdsi-studies/LegendT2dm/master/R/PrettyOutput.R")
+#source("https://raw.githubusercontent.com/ohdsi-studies/LegendT2dm/master/R/PrettyOutput.R")
 
-printCohortDefinitionFromNameAndJson(name = "Template Cohort (New-users of DDP4 inhibitors)",
-                                     json = SqlRender::readSql("templateCohort.json"),
-                                     withConcepts = TRUE)
+# printCohortDefinitionFromNameAndJson(name = "Template Cohort (New-users of DDP4 inhibitors)",
+#                                      json = SqlRender::readSql("templateCohort.json"),
+#                                      withConcepts = TRUE)
 ```
 
 # Outcome Cohort Definitions
 
 # Negative Control Concepts {#negative-controls}
+
+```{r ncs, echo=FALSE, warning=FALSE}
+# ncs <- readr::read_csv(system.file("settings", "NegativeControls.csv", package = "PCVDosingSchedule"), col_types = readr::cols())
+ncs <- readr::read_csv("../inst/settings/NegativeControls.csv", col_types = readr::cols())
+colnames(ncs) <- SqlRender::camelCaseToTitleCase(colnames(ncs))
+
+tab <- kable(ncs, booktabs = TRUE, linesep = "",
+      caption = "Negative control outcomes.", longtable = TRUE) %>% 
+  kable_styling(bootstrap_options = "striped", latex_options = "striped")
+
+if (knitr::is_latex_output()) {
+  tab %>%
+    column_spec(1, width = "15em") %>%
+    column_spec(2, width = "40em") %>%
+    kable_styling(font_size = latex_table_font_size)
+} else {
+  tab
+}
+```
+
