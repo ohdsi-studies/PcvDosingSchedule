@@ -1,0 +1,872 @@
+{
+  "ConceptSets": [
+    {
+      "id": 0,
+      "name": "PCV13",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CVX",
+              "CONCEPT_CODE": "133",
+              "CONCEPT_ID": 40213198,
+              "CONCEPT_NAME": "pneumococcal conjugate vaccine, 13 valent",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CVX"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "name": "all other PCV",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CVX",
+              "CONCEPT_CODE": "100",
+              "CONCEPT_ID": 40213199,
+              "CONCEPT_NAME": "pneumococcal conjugate vaccine, 7 valent",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CVX"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "90669",
+              "CONCEPT_ID": 2213447,
+              "CONCEPT_NAME": "Pneumococcal conjugate vaccine, 7 valent, for intramuscular use",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "CPT4"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CVX",
+              "CONCEPT_CODE": "177",
+              "CONCEPT_ID": 40213195,
+              "CONCEPT_NAME": "pneumococcal conjugate vaccine, 10 valent (non-US)",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CVX"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "90671",
+              "CONCEPT_ID": 777317,
+              "CONCEPT_NAME": "Pneumococcal conjugate vaccine, 15 valent (PCV15), for intramuscular use",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "CPT4"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CPT4",
+              "CONCEPT_CODE": "90677",
+              "CONCEPT_ID": 777318,
+              "CONCEPT_NAME": "Pneumococcal conjugate vaccine, 20 valent (PCV20), for intramuscular use",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "CPT4"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CVX",
+              "CONCEPT_CODE": "215",
+              "CONCEPT_ID": 702674,
+              "CONCEPT_NAME": "Pneumococcal conjugate vaccine 15-valent (PCV15), polysaccharide CRM197 conjugate, adjuvant, preservative free",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CVX"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CVX",
+              "CONCEPT_CODE": "216",
+              "CONCEPT_ID": 702675,
+              "CONCEPT_NAME": "Pneumococcal conjugate vaccine 20-valent (PCV20), polysaccharide CRM197 conjugate, adjuvant, preservative free",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CVX"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "in those 13 US states with universal vaccination program",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "224040005",
+              "CONCEPT_ID": 4072472,
+              "CONCEPT_NAME": "Alaska",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D000413",
+              "CONCEPT_ID": 19388244,
+              "CONCEPT_NAME": "Alaska",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "1116270",
+              "CONCEPT_ID": 42046190,
+              "CONCEPT_NAME": "Alaska",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "224057009",
+              "CONCEPT_ID": 4072475,
+              "CONCEPT_NAME": "Idaho",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D007061",
+              "CONCEPT_ID": 19391320,
+              "CONCEPT_NAME": "Idaho",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "162116",
+              "CONCEPT_ID": 42046227,
+              "CONCEPT_NAME": "Idaho",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "224066008",
+              "CONCEPT_ID": 4076091,
+              "CONCEPT_NAME": "Massachusetts",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D008404",
+              "CONCEPT_ID": 19391893,
+              "CONCEPT_NAME": "Massachusetts",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "61315",
+              "CONCEPT_ID": 42046242,
+              "CONCEPT_NAME": "Massachusetts",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "224064006",
+              "CONCEPT_ID": 4072476,
+              "CONCEPT_NAME": "Maine",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D008281",
+              "CONCEPT_ID": 19391833,
+              "CONCEPT_NAME": "Maine",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "63512",
+              "CONCEPT_ID": 42046240,
+              "CONCEPT_NAME": "Maine",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "421252009",
+              "CONCEPT_ID": 4227964,
+              "CONCEPT_NAME": "North Dakota",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D009658",
+              "CONCEPT_ID": 19392506,
+              "CONCEPT_NAME": "North Dakota",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "161653",
+              "CONCEPT_ID": 42046280,
+              "CONCEPT_NAME": "North Dakota",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "421753003",
+              "CONCEPT_ID": 4223011,
+              "CONCEPT_NAME": "New Hampshire",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "420979006",
+              "CONCEPT_ID": 4225182,
+              "CONCEPT_NAME": "New Mexico",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D009513",
+              "CONCEPT_ID": 19392446,
+              "CONCEPT_NAME": "New Hampshire",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D009516",
+              "CONCEPT_ID": 19392449,
+              "CONCEPT_NAME": "New Mexico",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "67213",
+              "CONCEPT_ID": 42046267,
+              "CONCEPT_NAME": "New Hampshire",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "162014",
+              "CONCEPT_ID": 42046269,
+              "CONCEPT_NAME": "New Mexico",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "422239001",
+              "CONCEPT_ID": 4227676,
+              "CONCEPT_NAME": "Oregon",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D009922",
+              "CONCEPT_ID": 19392668,
+              "CONCEPT_NAME": "Oregon",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "165476",
+              "CONCEPT_ID": 42046286,
+              "CONCEPT_NAME": "Oregon",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "422252006",
+              "CONCEPT_ID": 4227680,
+              "CONCEPT_NAME": "Rhode Island",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D012237",
+              "CONCEPT_ID": 19393745,
+              "CONCEPT_NAME": "Rhode Island",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "392915",
+              "CONCEPT_ID": 42046292,
+              "CONCEPT_NAME": "Rhode Island",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "421435008",
+              "CONCEPT_ID": 4224580,
+              "CONCEPT_NAME": "Vermont",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D014707",
+              "CONCEPT_ID": 19394842,
+              "CONCEPT_NAME": "Vermont",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "60759",
+              "CONCEPT_ID": 42046304,
+              "CONCEPT_NAME": "Vermont",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "421908005",
+              "CONCEPT_ID": 4223605,
+              "CONCEPT_NAME": "Washington",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D014861",
+              "CONCEPT_ID": 19394924,
+              "CONCEPT_NAME": "Washington",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "165479",
+              "CONCEPT_ID": 42046310,
+              "CONCEPT_NAME": "Washington",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "427726005",
+              "CONCEPT_ID": 4160145,
+              "CONCEPT_NAME": "Wisconsin",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D014922",
+              "CONCEPT_ID": 19394957,
+              "CONCEPT_NAME": "Wisconsin",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "165466",
+              "CONCEPT_ID": 42046312,
+              "CONCEPT_NAME": "Wisconsin",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Location",
+              "CONCEPT_CODE": "420781000",
+              "CONCEPT_ID": 4227208,
+              "CONCEPT_NAME": "Wyoming",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Main Heading",
+              "CONCEPT_CODE": "D014959",
+              "CONCEPT_ID": 19394978,
+              "CONCEPT_NAME": "Wyoming",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "N",
+              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
+              "VOCABULARY_ID": "MeSH"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "10th level",
+              "CONCEPT_CODE": "6039405",
+              "CONCEPT_ID": 41890118,
+              "CONCEPT_NAME": "Wyoming",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "4th level",
+              "CONCEPT_CODE": "161991",
+              "CONCEPT_ID": 42046313,
+              "CONCEPT_NAME": "Wyoming",
+              "DOMAIN_ID": "Geography",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "OSM"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          }
+        ]
+      }
+    }
+  ],
+  "PrimaryCriteria": {
+    "CriteriaList": [
+      {
+        "DrugExposure": {
+          "CorrelatedCriteria": {
+            "Type": "ALL",
+            "CriteriaList": [
+              {
+                "Criteria": {
+                  "DrugExposure": {
+                    "CodesetId": 1
+                  }
+                },
+                "StartWindow": {
+                  "Start": {
+                    "Coeff": -1
+                  },
+                  "End": {
+                    "Coeff": -1
+                  },
+                  "UseEventEnd": false
+                },
+                "Occurrence": {
+                  "Type": 0,
+                  "Count": 0
+                }
+              }
+            ],
+            "DemographicCriteriaList": [],
+            "Groups": []
+          },
+          "CodesetId": 0,
+          "OccurrenceStartDate": {
+            "Value": "2010-01-01",
+            "Extent": "2024-09-15",
+            "Op": "gte"
+          },
+          "Age": {
+            "Value": 5,
+            "Op": "lte"
+          }
+        }
+      }
+    ],
+    "ObservationWindow": {
+      "PriorDays": 0,
+      "PostDays": 1
+    },
+    "PrimaryCriteriaLimit": {
+      "Type": "All"
+    }
+  },
+  "QualifiedLimit": {
+    "Type": "First"
+  },
+  "ExpressionLimit": {
+    "Type": "All"
+  },
+  "InclusionRules": [
+    {
+      "name": "Age <= 5",
+      "description": "age <=5 years",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [],
+        "DemographicCriteriaList": [
+          {
+            "Age": {
+              "Value": 5,
+              "Op": "lte"
+            }
+          }
+        ],
+        "Groups": []
+      }
+    }
+  ],
+  "EndStrategy": {
+    "DateOffset": {
+      "DateField": "StartDate",
+      "Offset": 1
+    }
+  },
+  "CensoringCriteria": [],
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 3
+  },
+  "CensorWindow": {},
+  "cdmVersionRange": ">=6.1"
+}
