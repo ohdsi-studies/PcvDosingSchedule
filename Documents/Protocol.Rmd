@@ -358,20 +358,28 @@ We will make all study results publicly available using interactive RShinyApps, 
 # Exposure Cohort Definitions
 
 ```{r appendix,  echo=FALSE, results="asis", warning=FALSE, message=FALSE}
-#source("https://raw.githubusercontent.com/ohdsi-studies/LegendT2dm/master/R/PrettyOutput.R")
+source("https://raw.githubusercontent.com/ohdsi-studies/LegendT2dm/master/R/PrettyOutput.R")
 
-# printCohortDefinitionFromNameAndJson(name = "Template Cohort (New-users of DDP4 inhibitors)",
-#                                      json = SqlRender::readSql("templateCohort.json"),
-#                                      withConcepts = TRUE)
+printCohortDefinitionFromNameAndJson(name = "All PCV 13 Vaccinees Aged under 5",
+                                     json = SqlRender::readSql("../inst/cohorts/PCV13All.json"),
+                                     withConcepts = TRUE)
 ```
 
 # Outcome Cohort Definitions
+
+```{r appendix,  echo=FALSE, results="asis", warning=FALSE, message=FALSE}
+source("https://raw.githubusercontent.com/ohdsi-studies/LegendT2dm/master/R/PrettyOutput.R")
+
+printCohortDefinitionFromNameAndJson(name = "All PCV 13 Vaccinees Aged under 5",
+                                     json = SqlRender::readSql("../inst/cohorts/PCV13All.json"),
+                                     withConcepts = TRUE)
+```
 
 # Negative Control Concepts {#negative-controls}
 
 ```{r ncs, echo=FALSE, warning=FALSE}
 # ncs <- readr::read_csv(system.file("settings", "NegativeControls.csv", package = "PCVDosingSchedule"), col_types = readr::cols())
-ncs <- readr::read_csv("../inst/settings/NegativeControls.csv", col_types = readr::cols())
+ncs <- readr::read_csv("../inst/settings/NegativeControls_PCV.csv", col_types = readr::cols())
 colnames(ncs) <- SqlRender::camelCaseToTitleCase(colnames(ncs))
 
 tab <- kable(ncs, booktabs = TRUE, linesep = "",
