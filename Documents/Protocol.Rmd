@@ -262,9 +262,9 @@ Specifically, we consider these dosing schedules as standard:
 
 ```{r dosing-schedule, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Standard PCV dosing schedule. From Butler et. al. 2024. ', fig.pos='H'}
 if (knitr::is_latex_output()) {
-  knitr::include_graphics("PCVDosingSchedule.jpg")
+  knitr::include_graphics("figures/PCVDosingSchedule.jpg")
 } else {
-  knitr::include_graphics("PCVDosingSchedule.jpg")
+  knitr::include_graphics("figures/PCVDosingSchedule.jpg")
 }
 ```
 
@@ -297,7 +297,16 @@ This method mimics a per-protocol analysis of a RCT in which individuals are ran
 
 **Cloning process in the clone-censor weight analysis**: 
 For the comparison of the 3+1 schedule (recommended schedule) and the reduced dosing schedule, we will create copies of the longitudinal dataset corresponding to each dosing schedule of interest. This process is referred to as “cloning” in the TTE framework.[@maringe_reflection_2020,@zhao_versatility_2021,@shioda_comparative_2024]
-In each copy, individuals will be followed up from the index date (i.e., the day each individual becomes eligible to receive the vaccine) until the earliest occurrence of the following: the clinical outcome, the end of the study period, the child’s fifth birthday, or non-adherence to the assigned dosing schedule. This method addresses measured confounding at baseline because the copies of each observation are identical at the start of follow-up. In each schedule-specific copy, a vaccine recipient who does not follow a given dosing schedule will be considered non-adherent and will be censored at the time their dosing schedule differs from the specified schedule.
+In each copy, individuals will be followed up from the index date (i.e., the day each individual becomes eligible to receive the vaccine) until the earliest occurrence of the following: the clinical outcome, the end of the study period, the child’s fifth birthday, or non-adherence to the assigned dosing schedule. This method addresses measured confounding at baseline because the copies of each observation are identical at the start of follow-up. In each schedule-specific copy, a vaccine recipient who does not follow a given dosing schedule will be considered non-adherent and will be censored at the time their dosing schedule differs from the specified schedule. 
+See Figure \@ref(fig:clone-diagram) for an illustration using a 4-person toy example to produce the ``clones'' for the FDA-recommended dosing schedule. 
+
+```{r clone-diagram, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Diagram of the cloning process for the FDA-recommended dosing schedule, using a four-person toy example.', fig.pos='H'}
+if (knitr::is_latex_output()) {
+  knitr::include_graphics("figures/CCW_diagram.pdf")
+} else {
+  knitr::include_graphics("figures/CCW_diagram.jpg")
+}
+```
 
 **Inverse probability of censoring weights in the clone-censor weight analysis**: 
 Informative censoring due to dosing schedule non-adherence will be addressed with inverse probability of censoring weights.[@maringe_reflection_2020,@zhao_versatility_2021,@shioda_comparative_2024] 
@@ -357,7 +366,7 @@ We will make all study results publicly available using interactive RShinyApps, 
 
 # Exposure Cohort Definitions
 
-```{r appendix,  echo=FALSE, results="asis", warning=FALSE, message=FALSE}
+```{r pcv13-cohort,  echo=FALSE, results="asis", warning=FALSE, message=FALSE}
 source("https://raw.githubusercontent.com/ohdsi-studies/LegendT2dm/master/R/PrettyOutput.R")
 
 printCohortDefinitionFromNameAndJson(name = "All PCV 13 Vaccinees Aged under 5",
@@ -367,11 +376,38 @@ printCohortDefinitionFromNameAndJson(name = "All PCV 13 Vaccinees Aged under 5",
 
 # Outcome Cohort Definitions
 
-```{r appendix,  echo=FALSE, results="asis", warning=FALSE, message=FALSE}
-source("https://raw.githubusercontent.com/ohdsi-studies/LegendT2dm/master/R/PrettyOutput.R")
+```{r allCausePneumonia-cohort,  echo=FALSE, results="asis", warning=FALSE, message=FALSE}
+#source("https://raw.githubusercontent.com/ohdsi-studies/LegendT2dm/master/R/PrettyOutput.R")
 
-printCohortDefinitionFromNameAndJson(name = "All PCV 13 Vaccinees Aged under 5",
-                                     json = SqlRender::readSql("../inst/cohorts/PCV13All.json"),
+printCohortDefinitionFromNameAndJson(name = "Hospitalization due to  all-cause pneumonia",
+                                     json = SqlRender::readSql("../inst/cohorts/HospitalizationAllCausePneumonia.json"),
+                                     withConcepts = TRUE)
+```
+
+
+```{r allCauseMeningitis-cohort,  echo=FALSE, results="asis", warning=FALSE, message=FALSE}
+#source("https://raw.githubusercontent.com/ohdsi-studies/LegendT2dm/master/R/PrettyOutput.R")
+
+printCohortDefinitionFromNameAndJson(name = "Hospitalization due to all-cause meningitis",
+                                     json = SqlRender::readSql("../inst/cohorts/HospitalizationAllCauseMeningitis.json"),
+                                     withConcepts = TRUE)
+```
+
+
+```{r PenumococcalMeningitis-cohort,  echo=FALSE, results="asis", warning=FALSE, message=FALSE}
+#source("https://raw.githubusercontent.com/ohdsi-studies/LegendT2dm/master/R/PrettyOutput.R")
+
+printCohortDefinitionFromNameAndJson(name = "Hospitalization due to pneumococcal meningitis",
+                                     json = SqlRender::readSql("../inst/cohorts/HospitalizationPneumococcalMeningitis.json"),
+                                     withConcepts = TRUE)
+```
+
+
+```{r IPD-cohort,  echo=FALSE, results="asis", warning=FALSE, message=FALSE}
+#source("https://raw.githubusercontent.com/ohdsi-studies/LegendT2dm/master/R/PrettyOutput.R")
+
+printCohortDefinitionFromNameAndJson(name = "Hospitalization due to invasive pneumococcal diseases (IPD)",
+                                     json = SqlRender::readSql("../inst/cohorts/HospitalizationIPD.json"),
                                      withConcepts = TRUE)
 ```
 
