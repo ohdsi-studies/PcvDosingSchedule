@@ -1,4 +1,5 @@
-[Comparative Effectiveness of Different Dosing Schedules of Pneumococcal Conjugate Vaccines:\n Target Trial Emulation]
+Comparative Effectiveness of Different Dosing Schedules of Pneumococcal Conjugate Vaccines:
+Target Trial Emulation
 =============
 
 <img src="https://img.shields.io/badge/Study%20Status-Repo%20Created-lightgray.svg" alt="Study Status: Repo Created">
