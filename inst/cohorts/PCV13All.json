@@ -129,6 +129,75 @@
           }
         ]
       }
+    },
+    {
+      "id": 2,
+      "name": "Anaphylactic reaction to vaccination",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Disorder",
+              "CONCEPT_CODE": "213320003",
+              "CONCEPT_ID": 442038,
+              "CONCEPT_NAME": "Anaphylactic shock due to serum",
+              "DOMAIN_ID": "Observation",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Newborn event",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "281050002",
+              "CONCEPT_ID": 4092289,
+              "CONCEPT_NAME": "Livebirth",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Severe combined immunodeficiency",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Disorder",
+              "CONCEPT_CODE": "31323000",
+              "CONCEPT_ID": 29783,
+              "CONCEPT_NAME": "Severe combined immunodeficiency disease",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
     }
   ],
   "PrimaryCriteria": {
@@ -165,12 +234,72 @@
           "CodesetId": 0,
           "OccurrenceStartDate": {
             "Value": "2010-01-01",
-            "Extent": "2024-09-15",
-            "Op": "gte"
+            "Extent": "2023-12-31",
+            "Op": "bt"
           },
           "Age": {
             "Value": 5,
             "Op": "lte"
+          }
+        }
+      },
+      {
+        "ConditionOccurrence": {
+          "CorrelatedCriteria": {
+            "Type": "ALL",
+            "CriteriaList": [
+              {
+                "Criteria": {
+                  "ConditionOccurrence": {
+                    "CodesetId": 2
+                  }
+                },
+                "StartWindow": {
+                  "Start": {
+                    "Days": 0,
+                    "Coeff": 1
+                  },
+                  "End": {
+                    "Days": 37,
+                    "Coeff": 1
+                  },
+                  "UseEventEnd": false
+                },
+                "Occurrence": {
+                  "Type": 0,
+                  "Count": 0
+                }
+              },
+              {
+                "Criteria": {
+                  "ConditionOccurrence": {
+                    "CodesetId": 4
+                  }
+                },
+                "StartWindow": {
+                  "Start": {
+                    "Days": 0,
+                    "Coeff": 1
+                  },
+                  "End": {
+                    "Days": 37,
+                    "Coeff": 1
+                  },
+                  "UseEventEnd": false
+                },
+                "Occurrence": {
+                  "Type": 0,
+                  "Count": 0
+                }
+              }
+            ],
+            "DemographicCriteriaList": [],
+            "Groups": []
+          },
+          "CodesetId": 3,
+          "OccurrenceStartDate": {
+            "Value": "2010-01-01",
+            "Op": "gte"
           }
         }
       }
