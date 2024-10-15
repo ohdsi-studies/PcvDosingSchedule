@@ -75,6 +75,29 @@
           }
         ]
       }
+    },
+    {
+      "id": 4,
+      "name": "Newborn event",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "281050002",
+              "CONCEPT_ID": 4092289,
+              "CONCEPT_NAME": "Livebirth",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
     }
   ],
   "PrimaryCriteria": {
@@ -149,13 +172,15 @@
     },
     {
       "name": "Age between 2 months and 5 years",
-      "description": "Use observation >= 60 d prior to index to hopefully approximate age >= 2mo",
+      "description": "Use newborn event occurrence >= 60 days ago to define age >= 2 months",
       "expression": {
         "Type": "ALL",
         "CriteriaList": [
           {
             "Criteria": {
-              "ObservationPeriod": {}
+              "ConditionOccurrence": {
+                "CodesetId": 4
+              }
             },
             "StartWindow": {
               "Start": {
@@ -166,16 +191,6 @@
                 "Coeff": -1
               },
               "UseEventEnd": false
-            },
-            "EndWindow": {
-              "Start": {
-                "Days": 0,
-                "Coeff": -1
-              },
-              "End": {
-                "Coeff": 1
-              },
-              "UseEventEnd": true
             },
             "Occurrence": {
               "Type": 2,

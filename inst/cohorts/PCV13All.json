@@ -226,6 +226,82 @@
                   "Type": 0,
                   "Count": 0
                 }
+              },
+              {
+                "Criteria": {
+                  "ConditionOccurrence": {
+                    "CorrelatedCriteria": {
+                      "Type": "ALL",
+                      "CriteriaList": [
+                        {
+                          "Criteria": {
+                            "ConditionOccurrence": {
+                              "CodesetId": 2
+                            }
+                          },
+                          "StartWindow": {
+                            "Start": {
+                              "Days": 0,
+                              "Coeff": 1
+                            },
+                            "End": {
+                              "Days": 37,
+                              "Coeff": 1
+                            },
+                            "UseEventEnd": false
+                          },
+                          "Occurrence": {
+                            "Type": 0,
+                            "Count": 0
+                          }
+                        },
+                        {
+                          "Criteria": {
+                            "ConditionOccurrence": {
+                              "CodesetId": 4
+                            }
+                          },
+                          "StartWindow": {
+                            "Start": {
+                              "Days": 0,
+                              "Coeff": 1
+                            },
+                            "End": {
+                              "Days": 37,
+                              "Coeff": 1
+                            },
+                            "UseEventEnd": false
+                          },
+                          "Occurrence": {
+                            "Type": 0,
+                            "Count": 0
+                          }
+                        }
+                      ],
+                      "DemographicCriteriaList": [],
+                      "Groups": []
+                    },
+                    "CodesetId": 3,
+                    "OccurrenceStartDate": {
+                      "Value": "2010-01-01",
+                      "Op": "gte"
+                    }
+                  }
+                },
+                "StartWindow": {
+                  "Start": {
+                    "Coeff": -1
+                  },
+                  "End": {
+                    "Days": 0,
+                    "Coeff": -1
+                  },
+                  "UseEventEnd": false
+                },
+                "Occurrence": {
+                  "Type": 0,
+                  "Count": 1
+                }
               }
             ],
             "DemographicCriteriaList": [],
@@ -240,66 +316,6 @@
           "Age": {
             "Value": 5,
             "Op": "lte"
-          }
-        }
-      },
-      {
-        "ConditionOccurrence": {
-          "CorrelatedCriteria": {
-            "Type": "ALL",
-            "CriteriaList": [
-              {
-                "Criteria": {
-                  "ConditionOccurrence": {
-                    "CodesetId": 2
-                  }
-                },
-                "StartWindow": {
-                  "Start": {
-                    "Days": 0,
-                    "Coeff": 1
-                  },
-                  "End": {
-                    "Days": 37,
-                    "Coeff": 1
-                  },
-                  "UseEventEnd": false
-                },
-                "Occurrence": {
-                  "Type": 0,
-                  "Count": 0
-                }
-              },
-              {
-                "Criteria": {
-                  "ConditionOccurrence": {
-                    "CodesetId": 4
-                  }
-                },
-                "StartWindow": {
-                  "Start": {
-                    "Days": 0,
-                    "Coeff": 1
-                  },
-                  "End": {
-                    "Days": 37,
-                    "Coeff": 1
-                  },
-                  "UseEventEnd": false
-                },
-                "Occurrence": {
-                  "Type": 0,
-                  "Count": 0
-                }
-              }
-            ],
-            "DemographicCriteriaList": [],
-            "Groups": []
-          },
-          "CodesetId": 3,
-          "OccurrenceStartDate": {
-            "Value": "2010-01-01",
-            "Op": "gte"
           }
         }
       }
