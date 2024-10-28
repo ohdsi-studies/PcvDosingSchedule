@@ -262,8 +262,8 @@
       }
     },
     {
-      "name": "Age between 2 months and 5 years",
-      "description": "Use newborn event occurrence >= 60 days ago to define age >= 2 months",
+      "name": "Age between 38 days and 5 years",
+      "description": "Use newborn event occurrence >= 38 days ago to define age >= 38 days when outcome occurred",
       "expression": {
         "Type": "ALL",
         "CriteriaList": [
@@ -278,7 +278,7 @@
                 "Coeff": -1
               },
               "End": {
-                "Days": 60,
+                "Days": 38,
                 "Coeff": -1
               },
               "UseEventEnd": false
