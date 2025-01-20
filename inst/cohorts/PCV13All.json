@@ -218,7 +218,7 @@
                     "Coeff": -1
                   },
                   "End": {
-                    "Coeff": -1
+                    "Coeff": 1
                   },
                   "UseEventEnd": false
                 },
@@ -276,6 +276,28 @@
                             "Type": 0,
                             "Count": 0
                           }
+                        },
+                        {
+                          "Criteria": {
+                            "DrugExposure": {
+                              "CodesetId": 0
+                            }
+                          },
+                          "StartWindow": {
+                            "Start": {
+                              "Days": 0,
+                              "Coeff": 1
+                            },
+                            "End": {
+                              "Days": 456,
+                              "Coeff": 1
+                            },
+                            "UseEventEnd": false
+                          },
+                          "Occurrence": {
+                            "Type": 2,
+                            "Count": 1
+                          }
                         }
                       ],
                       "DemographicCriteriaList": [],
@@ -312,10 +334,6 @@
             "Value": "2010-01-01",
             "Extent": "2023-12-31",
             "Op": "bt"
-          },
-          "Age": {
-            "Value": 5,
-            "Op": "lte"
           }
         }
       }
@@ -334,25 +352,7 @@
   "ExpressionLimit": {
     "Type": "All"
   },
-  "InclusionRules": [
-    {
-      "name": "Age <= 5",
-      "description": "age <=5 years",
-      "expression": {
-        "Type": "ALL",
-        "CriteriaList": [],
-        "DemographicCriteriaList": [
-          {
-            "Age": {
-              "Value": 5,
-              "Op": "lte"
-            }
-          }
-        ],
-        "Groups": []
-      }
-    }
-  ],
+  "InclusionRules": [],
   "EndStrategy": {
     "DateOffset": {
       "DateField": "StartDate",
