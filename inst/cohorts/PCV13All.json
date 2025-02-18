@@ -1,136 +1,6 @@
 {
   "ConceptSets": [
     {
-      "id": 0,
-      "name": "PCV13",
-      "expression": {
-        "items": [
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "CVX",
-              "CONCEPT_CODE": "133",
-              "CONCEPT_ID": 40213198,
-              "CONCEPT_NAME": "pneumococcal conjugate vaccine, 13 valent",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "CVX"
-            },
-            "includeDescendants": true,
-            "includeMapped": true
-          }
-        ]
-      }
-    },
-    {
-      "id": 1,
-      "name": "all other PCV",
-      "expression": {
-        "items": [
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "CVX",
-              "CONCEPT_CODE": "100",
-              "CONCEPT_ID": 40213199,
-              "CONCEPT_NAME": "pneumococcal conjugate vaccine, 7 valent",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "CVX"
-            }
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "CPT4",
-              "CONCEPT_CODE": "90669",
-              "CONCEPT_ID": 2213447,
-              "CONCEPT_NAME": "Pneumococcal conjugate vaccine, 7 valent, for intramuscular use",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "N",
-              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
-              "VOCABULARY_ID": "CPT4"
-            }
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "CVX",
-              "CONCEPT_CODE": "177",
-              "CONCEPT_ID": 40213195,
-              "CONCEPT_NAME": "pneumococcal conjugate vaccine, 10 valent (non-US)",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "CVX"
-            }
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "CPT4",
-              "CONCEPT_CODE": "90671",
-              "CONCEPT_ID": 777317,
-              "CONCEPT_NAME": "Pneumococcal conjugate vaccine, 15 valent (PCV15), for intramuscular use",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "N",
-              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
-              "VOCABULARY_ID": "CPT4"
-            }
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "CPT4",
-              "CONCEPT_CODE": "90677",
-              "CONCEPT_ID": 777318,
-              "CONCEPT_NAME": "Pneumococcal conjugate vaccine, 20 valent (PCV20), for intramuscular use",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "N",
-              "STANDARD_CONCEPT_CAPTION": "Non-Standard",
-              "VOCABULARY_ID": "CPT4"
-            }
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "CVX",
-              "CONCEPT_CODE": "215",
-              "CONCEPT_ID": 702674,
-              "CONCEPT_NAME": "Pneumococcal conjugate vaccine 15-valent (PCV15), polysaccharide CRM197 conjugate, adjuvant, preservative free",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "CVX"
-            }
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "CVX",
-              "CONCEPT_CODE": "216",
-              "CONCEPT_ID": 702675,
-              "CONCEPT_NAME": "Pneumococcal conjugate vaccine 20-valent (PCV20), polysaccharide CRM197 conjugate, adjuvant, preservative free",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "CVX"
-            }
-          }
-        ]
-      }
-    },
-    {
       "id": 2,
       "name": "Anaphylactic reaction to vaccination",
       "expression": {
@@ -198,148 +68,70 @@
           }
         ]
       }
+    },
+    {
+      "id": 6,
+      "name": "PCV13",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "CVX",
+              "CONCEPT_CODE": "133",
+              "CONCEPT_ID": 40213198,
+              "CONCEPT_NAME": "pneumococcal conjugate vaccine, 13 valent",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "CVX"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "name": "liveborn event (observation)",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Context-dependent",
+              "CONCEPT_CODE": "442311008",
+              "CONCEPT_ID": 40482735,
+              "CONCEPT_NAME": "Liveborn born in hospital",
+              "DOMAIN_ID": "Observation",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true,
+            "includeMapped": true
+          }
+        ]
+      }
     }
   ],
   "PrimaryCriteria": {
     "CriteriaList": [
       {
         "DrugExposure": {
-          "CorrelatedCriteria": {
-            "Type": "ALL",
-            "CriteriaList": [
-              {
-                "Criteria": {
-                  "DrugExposure": {
-                    "CodesetId": 1
-                  }
-                },
-                "StartWindow": {
-                  "Start": {
-                    "Coeff": -1
-                  },
-                  "End": {
-                    "Coeff": 1
-                  },
-                  "UseEventEnd": false
-                },
-                "Occurrence": {
-                  "Type": 0,
-                  "Count": 0
-                }
-              },
-              {
-                "Criteria": {
-                  "ConditionOccurrence": {
-                    "CorrelatedCriteria": {
-                      "Type": "ALL",
-                      "CriteriaList": [
-                        {
-                          "Criteria": {
-                            "ConditionOccurrence": {
-                              "CodesetId": 2
-                            }
-                          },
-                          "StartWindow": {
-                            "Start": {
-                              "Days": 0,
-                              "Coeff": 1
-                            },
-                            "End": {
-                              "Days": 37,
-                              "Coeff": 1
-                            },
-                            "UseEventEnd": false
-                          },
-                          "Occurrence": {
-                            "Type": 0,
-                            "Count": 0
-                          }
-                        },
-                        {
-                          "Criteria": {
-                            "ConditionOccurrence": {
-                              "CodesetId": 4
-                            }
-                          },
-                          "StartWindow": {
-                            "Start": {
-                              "Days": 0,
-                              "Coeff": 1
-                            },
-                            "End": {
-                              "Days": 37,
-                              "Coeff": 1
-                            },
-                            "UseEventEnd": false
-                          },
-                          "Occurrence": {
-                            "Type": 0,
-                            "Count": 0
-                          }
-                        },
-                        {
-                          "Criteria": {
-                            "DrugExposure": {
-                              "CodesetId": 0
-                            }
-                          },
-                          "StartWindow": {
-                            "Start": {
-                              "Days": 0,
-                              "Coeff": 1
-                            },
-                            "End": {
-                              "Days": 456,
-                              "Coeff": 1
-                            },
-                            "UseEventEnd": false
-                          },
-                          "Occurrence": {
-                            "Type": 2,
-                            "Count": 1
-                          }
-                        }
-                      ],
-                      "DemographicCriteriaList": [],
-                      "Groups": []
-                    },
-                    "CodesetId": 3,
-                    "OccurrenceStartDate": {
-                      "Value": "2010-01-01",
-                      "Op": "gte"
-                    }
-                  }
-                },
-                "StartWindow": {
-                  "Start": {
-                    "Coeff": -1
-                  },
-                  "End": {
-                    "Days": 0,
-                    "Coeff": -1
-                  },
-                  "UseEventEnd": false
-                },
-                "Occurrence": {
-                  "Type": 0,
-                  "Count": 1
-                }
-              }
-            ],
-            "DemographicCriteriaList": [],
-            "Groups": []
-          },
-          "CodesetId": 0,
+          "CodesetId": 6,
           "OccurrenceStartDate": {
             "Value": "2010-01-01",
             "Extent": "2023-12-31",
-            "Op": "bt"
+            "Op": "gte"
           }
         }
       }
     ],
     "ObservationWindow": {
-      "PriorDays": 0,
+      "PriorDays": 30,
       "PostDays": 1
     },
     "PrimaryCriteriaLimit": {
@@ -352,7 +144,191 @@
   "ExpressionLimit": {
     "Type": "All"
   },
-  "InclusionRules": [],
+  "InclusionRules": [
+    {
+      "name": "Age <= 2 to exclude older vaccinees",
+      "description": " Exclude older patients by restricting on babies",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [],
+        "DemographicCriteriaList": [
+          {
+            "Age": {
+              "Value": 2,
+              "Op": "lte"
+            }
+          }
+        ],
+        "Groups": []
+      }
+    },
+    {
+      "name": "Newborn event within 15 months prior to vaccination",
+      "expression": {
+        "Type": "ANY",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CorrelatedCriteria": {
+                  "Type": "ALL",
+                  "CriteriaList": [
+                    {
+                      "Criteria": {
+                        "ConditionOccurrence": {
+                          "CodesetId": 2
+                        }
+                      },
+                      "StartWindow": {
+                        "Start": {
+                          "Days": 0,
+                          "Coeff": -1
+                        },
+                        "End": {
+                          "Days": 37,
+                          "Coeff": 1
+                        },
+                        "UseEventEnd": false
+                      },
+                      "Occurrence": {
+                        "Type": 0,
+                        "Count": 0
+                      }
+                    },
+                    {
+                      "Criteria": {
+                        "ConditionOccurrence": {
+                          "CodesetId": 4
+                        }
+                      },
+                      "StartWindow": {
+                        "Start": {
+                          "Days": 0,
+                          "Coeff": -1
+                        },
+                        "End": {
+                          "Days": 37,
+                          "Coeff": 1
+                        },
+                        "UseEventEnd": false
+                      },
+                      "Occurrence": {
+                        "Type": 0,
+                        "Count": 0
+                      }
+                    }
+                  ],
+                  "DemographicCriteriaList": [],
+                  "Groups": []
+                },
+                "CodesetId": 3,
+                "OccurrenceStartDate": {
+                  "Value": "2010-01-01",
+                  "Extent": "2023-12-31",
+                  "Op": "bt"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 456,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
+          {
+            "Criteria": {
+              "Observation": {
+                "CorrelatedCriteria": {
+                  "Type": "ALL",
+                  "CriteriaList": [
+                    {
+                      "Criteria": {
+                        "ConditionOccurrence": {
+                          "CodesetId": 2
+                        }
+                      },
+                      "StartWindow": {
+                        "Start": {
+                          "Days": 0,
+                          "Coeff": -1
+                        },
+                        "End": {
+                          "Days": 37,
+                          "Coeff": 1
+                        },
+                        "UseEventEnd": false
+                      },
+                      "Occurrence": {
+                        "Type": 0,
+                        "Count": 0
+                      }
+                    },
+                    {
+                      "Criteria": {
+                        "ConditionOccurrence": {
+                          "CodesetId": 4
+                        }
+                      },
+                      "StartWindow": {
+                        "Start": {
+                          "Days": 0,
+                          "Coeff": -1
+                        },
+                        "End": {
+                          "Days": 37,
+                          "Coeff": 1
+                        },
+                        "UseEventEnd": false
+                      },
+                      "Occurrence": {
+                        "Type": 0,
+                        "Count": 0
+                      }
+                    }
+                  ],
+                  "DemographicCriteriaList": [],
+                  "Groups": []
+                },
+                "CodesetId": 7,
+                "OccurrenceStartDate": {
+                  "Value": "2010-01-01",
+                  "Extent": "2023-12-31",
+                  "Op": "bt"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 456,
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+        ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    }
+  ],
   "EndStrategy": {
     "DateOffset": {
       "DateField": "StartDate",
