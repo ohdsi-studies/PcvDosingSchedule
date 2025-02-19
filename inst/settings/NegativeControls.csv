@@ -1,94 +1,158 @@
-outcomeId,outcomeName
-438945,Accidental poisoning by benzodiazepine-based tranquilizer
-434455,Acquired claw toes
-316211,Acquired spondylolisthesis
-201612,Alcoholic liver damage
-438730,Alkalosis
-441258,Anemia in neoplastic disease
-432513,Animal bite wound
-4171556,Ankle ulcer
-4098292,Antiphospholipid syndrome
-77650,Aseptic necrosis of bone
-4239873,Benign neoplasm of ciliary body
-23731,Benign neoplasm of larynx
-199764,Benign neoplasm of ovary
-195500,Benign neoplasm of uterus
-4145627,Biliary calculus
-4108471,Burn of digit of hand
-75121,Burn of lower leg
-4284982,Calculus of bile duct without obstruction
-434327,Cannabis abuse
-78497,Cellulitis and abscess of toe
-4001454,Cervical spine ankylosis
-4068241,Chronic instability of knee
-195596,Chronic pancreatitis
-4206338,Chronic salpingitis
-4058397,Claustrophobia
-74816,Contusion of toe
-73302,Curvature of spine
-4151134,Cyst of pancreas
-77638,Displacement of intervertebral disc without myelopathy
-195864,Diverticulum of bladder
-201346,Edema of penis
-200461,Endometriosis of uterus
-377877,Esotropia
-193530,Follicular cyst of ovary
-4094822,Foreign body in respiratory tract
-443421,Gallbladder and bile duct calculi
-4299408,Gouty tophus
-135215,Hashimoto thyroiditis
-442190,Hemorrhage of colon
-43020475,High risk heterosexual behavior
-194149,Hirschsprung's disease
-443204,Human ehrlichiosis
-4226238,Hyperosmolar coma due to diabetes mellitus
-4032787,Hyperosmolarity
-197032,Hyperplasia of prostate
-140362,Hypoparathyroidism
-435371,Hypothermia
-138690,Infestation by Pediculus
-4152376,Intentional self poisoning
-192953,Intestinal adhesions with obstruction
-196347,Intestinal parasitism
-137977,Jaundice
-317510,Leukemia
-765053,Lump in right breast
-378165,Nystagmus
-434085,Obstruction of duodenum
-4147016,Open wound of buttock
-4129404,Open wound of upper arm
-438120,Opioid dependence
-75924,Osteodystrophy
-432594,Osteomalacia
-30365,Panhypopituitarism
-4108371,Peripheral gangrene
-440367,Plasmacytosis
-439233,Poisoning by antidiabetic agent
-442149,Poisoning by bee sting
-4314086,Poisoning due to sting of ant
-4147660,Postural kyphosis
-434319,Premature ejaculation
-199754,Primary malignant neoplasm of pancreas
-4311499,Primary malignant neoplasm of respiratory tract
-436635,Primary malignant neoplasm of sigmoid colon
-196044,Primary malignant neoplasm of stomach
-433716,Primary malignant neoplasm of testis
-133424,Primary malignant neoplasm of thyroid gland
-194997,Prostatitis
-80286,Prosthetic joint loosening
-443274,Psychostimulant dependence
-314962,Raynaud's disease
-37018294,Residual osteitis
-4288241,Salmonella enterica subspecies arizonae infection
-45757269,Sclerosing mesenteritis
-74722,Secondary localized osteoarthrosis of pelvic region
-200348,Secondary malignant neoplasm of large intestine
-43020446,Sedative withdrawal
-74194,Sprain of spinal ligament
-4194207,Tailor's bunion
-193521,Tropical sprue
-40482801,Type II diabetes mellitus uncontrolled
-74719,Ulcer of foot
-196625,Viral hepatitis A without hepatic coma
-197494,Viral hepatitis C
-4284533,Vitamin D-dependent rickets
+conceptId,cohortId,outcomeName
+4152351,1001,"Abdominal distension, gaseous"
+381572,1002,Abducens nerve palsy
+443585,1003,Abrasion and/or friction burn of multiple sites
+436445,1004,Abrasion of tooth
+4058350,1005,"Abrasion, knee"
+4310082,1006,Accidental poisoning by cannabis derivatives
+436615,1007,Accidental poisoning from berries and seeds
+438719,1008,Active rickets
+433454,1009,Adjustment disorder with mixed emotional features
+4173136,1010,Agnosia
+76725,1011,Anal fissure
+434374,1012,Anisocoria
+312934,1013,Atherosclerosis of aorta
+313217,1014,Atrial fibrillation
+316135,1015,Atrioventricular block
+4045471,1016,Autoimmune reaction mediated by cell-mediated immunity
+45763685,1017,Avulsion fracture of medial epicondyle of humerus
+4162322,1018,Beta-adrenoceptor agonist poisoning
+134765,1019,Cachexia
+433758,1020,Childhood emotional disorder
+434344,1021,Ciliary muscle spasm
+81426,1022,Closed fracture of clavicle
+46269889,1023,Complication due to Crohn's disease
+443617,1024,Conduct disorder
+319835,1025,Congestive heart failure
+75860,1026,Constipation
+138604,1027,"Contusion of face, scalp and neck, excluding eye(s)"
+4311591,1028,Cramp in limb
+80242,1029,Current tear of medial cartilage AND/OR meniscus of knee
+40481358,1030,Cutis laxa of upper eyelid
+435796,1031,Dehydration
+77066,1032,Derangement of medial meniscus
+438759,1033,Descemet's membrane fold
+377910,1034,Deviated nasal septum
+443238,1035,Diabetic - poor control
+442988,1036,Digestant poisoning
+320739,1037,Dissection of aorta
+4164898,1038,Diverticulosis of large intestine without diverticulitis
+433440,1039,Dysthymia
+40481089,1040,Embolism from thrombosis of vein of lower extremity
+320128,1041,Essential hypertension
+380403,1042,External hordeolum
+4147411,1043,Follicular non-Hodgkin's lymphoma
+4128914,1044,Fracture of multiple ribs
+318800,1045,Gastroesophageal reflux disease
+197988,1046,Generalized abdominal pain
+434613,1047,Generalized anxiety disorder
+4168217,1048,Generalized hyperhidrosis
+40489449,1049,Greenstick fracture of distal radius
+4204199,1050,Hand pain
+198400,1051,Hemangioma of skin and subcutaneous tissue
+438111,1052,Hematologic neoplasm of uncertain behavior
+40480429,1053,Hemiplegia of nondominant side
+4163735,1054,Hemochromatosis
+195562,1055,Hemorrhoids
+4038839,1056,"Hodgkin lymphoma, nodular lymphocyte predominance"
+4038842,1057,"Hodgkin's disease, nodular sclerosis"
+4012934,1058,Homocystinuria
+433985,1059,Hypercarotinemia
+4295287,1060,Hypercoagulability state
+376415,1061,Hypermetropia
+4287416,1062,Hyperphenylalaninemia
+438134,1063,Hypersomnia
+4098611,1064,Hyperuricemia without signs of inflammatory arthritis and tophaceous disease
+435515,1065,Hypo-osmolality and or hyponatremia
+435510,1066,Hypocalcemia
+440072,1067,Hypogammaglobulinemia
+437833,1068,Hypokalemia
+4098604,1069,Hypomagnesemia
+374375,1070,Impacted cerumen
+4344500,1071,Impingement syndrome of shoulder region
+4044708,1072,"Langerhans cell histiocytosis, unifocal"
+437176,1073,Late effect of accidental fall
+4176310,1074,Late effect of epidural hematoma due to trauma
+141667,1075,Laxity of ligament
+4031128,1076,Lipoma of skin and subcutaneous tissue of limb
+435516,1077,Lipoprotein deficiency disorder
+436311,1078,Local anti-infective and anti-inflammatory poisoning
+4210746,1079,Localized amyloidosis
+4171917,1080,Localized edema
+4171919,1081,"Localized swelling, mass and lump, lower limb"
+317002,1082,Low blood pressure
+4044404,1083,Lumbosacral plexus neuropathy
+37109493,1084,Macular hole of left eye
+4282096,1085,"Major depression, single episode"
+40481901,1086,Mantle cell lymphoma
+78472,1087,Microscopic hematuria
+434002,1088,Mineral deficiency
+43531028,1089,Mononeuropathy of lower limb
+434005,1090,Morbid obesity
+137967,1091,"Muscle, ligament and fascia disorders"
+134315,1092,Myelophthisis
+31967,1093,Nausea
+24134,1094,Neck pain
+4035269,1095,Non-ketotic hyperglycinemia
+4158911,1096,Non-rheumatic heart valve disorder
+4031164,1097,Non-scarring alopecia
+444428,1098,Nonvenomous insect bite without infection
+4079750,1099,Osteoarthritis of knee
+45768450,1100,Pain due to varicose veins of lower extremity
+762294,1101,Pain in right foot
+42539051,1102,Pain of intercostal space
+45769207,1103,Pain provoked by trauma
+315078,1104,Palpitations
+440691,1105,Paranoid personality disorder
+433450,1106,Paranoid schizophrenia
+433084,1107,Parasympatholytic and spasmolytic poisoning
+4236484,1108,Paresthesia
+141474,1109,Partial thickness burn of hand
+375292,1110,Perforation of tympanic membrane
+321596,1111,Peripheral venous insufficiency
+78162,1112,Peripheral vertigo
+40481920,1113,Periumbilical pain
+438122,1114,Persistent hyperplasia of thymus
+81382,1115,Pigmented villonodular synovitis
+4071059,1116,Plagiocephaly
+134460,1117,Plantar fascial fibromatosis
+439233,1118,Poisoning by antidiabetic agent
+433080,1119,Poisoning by cardiac rhythm regulator
+4191487,1120,Poisoning by caterpillar
+433647,1121,Poisoning by central nervous system muscle tone depressant
+437168,1122,Poisoning by erythromycin AND/OR other macrolide
+4020145,1123,Poisoning by histamine H2-receptor antagonists
+436860,1124,Poisoning by irritant cathartic
+438915,1125,Poisoning by penicillin
+443703,1126,Poisoning by propionic acid derivative
+440923,1127,Poisoning by surface (topical) AND/OR infiltration anesthetic
+440924,1128,Poisoning by vasodilator
+437194,1129,Poisoning by viral AND/OR rickettsial vaccine
+22856,1130,Polyglandular dysfunction
+4285898,1131,Polyp of colon
+192680,1132,Portal hypertension
+37018196,1133,Prediabetes
+4157389,1134,Protein deficiency disease
+374044,1135,Ptosis of eyelid
+4308074,1136,Pyogenic granuloma
+4158910,1137,Secondary malignant neoplasm of unknown site
+78232,1138,Shoulder joint pain
+4015216,1139,Strain of long head of biceps
+45766819,1140,Stress fracture of foot
+4207539,1141,Syndrome of inappropriate vasopressin secretion
+378427,1142,Tear film insufficiency
+135852,1143,Teething syndrome
+376382,1144,Tension-type headache
+4189235,1145,Third cranial nerve weakness
+4012690,1146,Thoracic nerve root pain
+4327889,1147,Thromboembolism of vein
+443428,1148,Torus fracture of radius
+437434,1149,Toxic effect from eating mushrooms
+437472,1150,Toxic effect of acid
+433368,1151,Toxic effect of soap AND/OR detergent
+440905,1152,Toxic effect of venom
+4056591,1153,Traumatic rupture of lumbar intervertebral disc
+201826,1154,Type 2 diabetes mellitus
+434625,1155,Undifferentiated somatoform disorder
+195590,1156,Urethral stricture
+439981,1157,Wound dehiscence
