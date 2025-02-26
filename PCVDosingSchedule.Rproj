@@ -14,9 +14,5 @@ LaTeX: pdfLaTeX
 
 BuildType: Package
 PackageUseDevtools: Yes
-<<<<<<< HEAD
-PackagePath: /Users/fanbu/University of Michigan Dropbox/Fan Bu/Macbook-M1-2021-files/Documents-M1/Research/PCVDosingSchedule
-=======
->>>>>>> 669ca1310355a5213c80177d6c47af8093c8d0e9
 PackageInstallArgs: --no-multiarch --with-keep.source
 PackageRoxygenize: rd,collate,namespace
