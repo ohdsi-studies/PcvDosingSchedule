@@ -1,5 +1,5 @@
 ---
-title: "| RESEARCH PROTOCOL\n| \n| Comparative Effectiveness of Different Dosing Schedules of Pneumococcal Conjugate Vaccines:\n Target Trial Emulation \n"
+title: "| RESEARCH PROTOCOL\n| \n| DOSETTE: DOsing Schedule Evaluation using Target Trial Emulation, \n for Childhood Pneumococcal Conjugate Vaccines\n"
 fontsize: 12pt
 geometry: margin=1in
 output:
@@ -49,8 +49,8 @@ longtable: yes
 mainfont: Arial
 bibliography: Protocol.bib
 params:
-  date: '20-Jan-2025'
-  version: 0.0.4
+  date: '17-Feb-2025'
+  version: 0.1.0
 subtitle: 'Version: `r params$version`'
 link-citations: yes
 csl: bmj.csl
@@ -185,7 +185,8 @@ if (knitr::is_latex_output()) {
 ```{r dates, echo=FALSE}
 dates <- readr::read_delim(col_names = TRUE, delim = ";", trim_ws = TRUE, file = "
   Milestone; Planned / actual date
-  Draft of study protocol; 09/20/2024
+  1st draft of study protocol; 09/20/2024
+  Updated study protocol; 17/02/2025
 ")
 
 tab <- kable(dates, booktabs = TRUE, linesep = "")
@@ -245,7 +246,9 @@ We are actively recruiting OHDSI community data partner through OHDSI’s standa
 
 ## Study Population
 
-Vaccine-eligible children born between 2010 (when the PCV13 was introduced into the routine childhood immunization program in the U.S.) and 2023, who received at least one dose of PCV13 by the time they turn 15 months of age. In the US., wherever state-level location information is available, the main study will only cover 37 states (states other than Alaska, Idaho, Massachusetts, Maine, North Dakota, New Hampshire, New Mexico, Oregon, Rhode Island, Vermont, Washington, Wisconsin, and Wyoming) since the thirteen states with universal childhood vaccination programs will have incomplete insurance claims records;our sensitivity analysis will include all 50 states in the US. 
+Vaccine-eligible children born between 2010 (when the PCV13 was introduced into the routine childhood immunization program in the U.S.) and 2023, who did not experience any severe allergic reactions to vaccination by day 37 after birth (one day before the recommended earliest day for the first dose PCV13). 
+While comparing effectiveness of different dosing schedules, we further restrict to those children who received at least one dose of PCV13 by the time they turn 15 months of age (i.e., 456 days after birth). 
+In the US., wherever state-level location information is available, the main study will only cover 37 states (states other than Alaska, Idaho, Massachusetts, Maine, North Dakota, New Hampshire, New Mexico, Oregon, Rhode Island, Vermont, Washington, Wisconsin, and Wyoming) since the thirteen states with universal childhood vaccination programs will have incomplete insurance claims records;our sensitivity analysis will include all 50 states in the US. 
 
 ## Exposure Comparators
 We will compare the effectiveness of the recommended PCV 3+1 schedule (three doses in the first year of life and a booster in the second year) and reduced dosing schedules (e.g., 2+1, 2+0, 1+1, 1+0).
