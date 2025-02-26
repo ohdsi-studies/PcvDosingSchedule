@@ -1,4 +1,5 @@
 
+#' @export 
 createCohortsFromFiles <- function(connectionDetails,
                                    cdmDatabaseSchema,
                                    cohortDatabaseSchema,
@@ -51,6 +52,7 @@ createCohortsFromFiles <- function(connectionDetails,
   readr::write_csv(cohortCounts, file.path(outputPath, countsFileName))
 }
 
+#' @export 
 createNegativeControlsCohorts <- function(connectionDetails,
                                           cdmDatabaseSchema,
                                           cohortDatabaseSchema,
@@ -95,4 +97,69 @@ createNegativeControlsCohorts <- function(connectionDetails,
                                                    cohortTable = cohortTableName)
   countsFileName = paste0(cohortTableName, "_cohortCounts.csv")
   readr::write_csv(cohortCounts, file.path(outputPath, countsFileName))
+}
+
+
+
+#' @export
+deriveBirthVaccinationCohort <- function(connectionDetails,
+                                         cohortDatabaseSchema,
+                                         cohortTableName,
+                                         oracleTempSchema = NULL){
+  
+  connection <- DatabaseConnector::connect(connectionDetails)
+  on.exit(DatabaseConnector::disconnect(connection))
+  
+  ParallelLogger::logInfo("Generating derived cohort table with birth date and vaccination dates")
+  sql <- SqlRender::loadRenderTranslateSql("DeriveBirthVaccinationCohort.sql",
+                                           "PCVDosingSchedule",
+                                           dbms = connectionDetails$dbms,
+                                           oracleTempSchema = oracleTempSchema,
+                                           cohort_database_schema = cohortDatabaseSchema,
+                                           cohort_table = cohortTableName)
+  DatabaseConnector::executeSql(connection, sql)
+  
+  # get counts 
+  sql <- sprintf("SELECT COUNT(*) FROM %s.dosette_birth_vaccine_cohort;",cohortDatabaseSchema)
+  # sql <- SqlRender::renderSql(sql, 
+  #                             cohort_database_schema = cohortDatabaseSchema)
+  sql <- SqlRender::translate(sql, targetDialect = connectionDetails$dbms)
+  theCount = DatabaseConnector::querySql(connection, sql)$COUNT
+  ParallelLogger::logInfo(sprintf("Found %s subjects in derived cohort.", theCount))
+}
+
+
+
+#' @export
+queryCohortCovariates <- function(connectionDetails,
+                                  cdmDatabaseSchema,
+                                  cohortDatabaseSchema,
+                                  resultCohortTableName,
+                                  outputPath,
+                                  oracleTempSchema = NULL){
+  
+  connection <- DatabaseConnector::connect(connectionDetails)
+  on.exit(DatabaseConnector::disconnect(connection))
+  
+  ParallelLogger::logInfo("Querying demographic and geographic covariates of all subjects.")
+  sql <- SqlRender::loadRenderTranslateSql("QueryCohortCovariates.sql",
+                                           "PCVDosingSchedule",
+                                           dbms = connectionDetails$dbms,
+                                           oracleTempSchema = oracleTempSchema,
+                                           cdm_database_schema = cdmDatabaseSchema,
+                                           cohort_database_schema = cohortDatabaseSchema,
+                                           result_cohort_table = resultCohortTableName)
+  DatabaseConnector::executeSql(connection, sql)
+  
+  ## count missing data proportions for all fields
+  ParallelLogger::logInfo("Counting missing data proportions.")
+  sql <- SqlRender::loadRenderTranslateSql("CountMissingProportions.sql",
+                                           "PCVDosingSchedule",
+                                           dbms = connectionDetails$dbms,
+                                           oracleTempSchema = oracleTempSchema,
+                                           cohort_database_schema = cohortDatabaseSchema)
+  missingProps = DatabaseConnector::querySql(connection, sql)
+  names(missingProps) = SqlRender::snakeCaseToCamelCase(names(missingProps))
+  countsFileName = paste0(resultCohortTableName, "_missingCounts.csv")
+  readr::write_csv(missingProps, file.path(outputPath, countsFileName))
 }
