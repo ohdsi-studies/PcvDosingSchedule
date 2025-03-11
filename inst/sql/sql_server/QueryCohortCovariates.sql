@@ -3,20 +3,21 @@ DROP TABLE IF EXISTS @cohort_database_schema.@result_cohort_table;
 
 -- Create the new table with explicit data types
 CREATE TABLE @cohort_database_schema.@result_cohort_table (
-    subject_id INT NOT NULL,                     -- Assuming subject_id is of type INT
+    subject_id BIGINT NOT NULL,                     -- Assuming subject_id is of type INT
     birth_date DATE,                    -- Assuming birth_date is of type DATE
     date_dose_1 DATE,                   -- Assuming vaccination dates are of type DATE
     date_dose_2 DATE,
     date_dose_3 DATE,
     date_dose_4 DATE,
-    gender VARCHAR(50),                 -- Assuming gender is a string, adjust length as needed
+    date_admin_censor DATE,
+    sex VARCHAR(50),                 -- Assuming gender is a string, adjust length as needed
     race VARCHAR(50),                   -- Assuming race is a string, adjust length as needed
     ethnicity VARCHAR(50),              -- Assuming ethnicity is a string, adjust length as needed
-    location VARCHAR(100)               -- Assuming state/location is a string, adjust length as needed
+    state VARCHAR(100)               -- Assuming state/location is a string, adjust length as needed
 );
 
 -- Insert the results into the created table
-INSERT INTO @cohort_database_schema.@result_cohort_table (subject_id, birth_date, date_dose_1, date_dose_2, date_dose_3, date_dose_4, gender, race, ethnicity, location)
+INSERT INTO @cohort_database_schema.@result_cohort_table (subject_id, birth_date, date_dose_1, date_dose_2, date_dose_3, date_dose_4, date_admin_censor, sex, race, ethnicity, state)
 SELECT 
     dbvc.subject_id,                    -- subject_id from dosette_birth_vaccine_cohort
     dbvc.birth_date,                    -- birth_date from dosette_birth_vaccine_cohort
@@ -24,10 +25,11 @@ SELECT
     dbvc.date_dose_2,                   -- date_dose_2 from dosette_birth_vaccine_cohort
     dbvc.date_dose_3,                   -- date_dose_3 from dosette_birth_vaccine_cohort
     dbvc.date_dose_4,                   -- date_dose_4 from dosette_birth_vaccine_cohort
-    gender.concept_name AS gender,      -- gender concept_name from concept table
+    dbvc.admin_censor AS date_admin_censor,
+    gender.concept_name AS sex,         -- gender concept_name from concept table, named as `sex`
     race.concept_name AS race,          -- race concept_name from concept table
     ethnicity.concept_name AS ethnicity, -- ethnicity concept_name from concept table
-    loc.state AS location                -- state from location table
+    loc.state AS state                  -- state from location table
 FROM 
     @cohort_database_schema.dosette_birth_vaccine_cohort dbvc
 LEFT JOIN 

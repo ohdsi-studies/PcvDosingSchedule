@@ -65,10 +65,10 @@ FROM
 UNION ALL
 
 SELECT 
-    'gender' AS column_name,
+    'sex' AS column_name,
     COUNT(*) AS total_count,
-    SUM(CASE WHEN gender IS NULL THEN 1 ELSE 0 END) AS missing_count,
-    SUM(CASE WHEN gender IS NULL THEN 1 ELSE 0 END) * 1.0 / COUNT(*) AS missing_proportion
+    SUM(CASE WHEN sex IS NULL THEN 1 ELSE 0 END) AS missing_count,
+    SUM(CASE WHEN sex IS NULL THEN 1 ELSE 0 END) * 1.0 / COUNT(*) AS missing_proportion
 
 FROM 
     @cohort_database_schema.dosette_cohort_covariates
@@ -98,10 +98,10 @@ FROM
 UNION ALL
 
 SELECT 
-    'location' AS column_name,
+    'state' AS column_name,
     COUNT(*) AS total_count,
-    SUM(CASE WHEN location IS NULL THEN 1 ELSE 0 END) AS missing_count,
-    SUM(CASE WHEN location IS NULL THEN 1 ELSE 0 END) * 1.0 / COUNT(*) AS missing_proportion
+    SUM(CASE WHEN state IS NULL THEN 1 ELSE 0 END) AS missing_count,
+    SUM(CASE WHEN state IS NULL THEN 1 ELSE 0 END) * 1.0 / COUNT(*) AS missing_proportion
 
 FROM 
     @cohort_database_schema.dosette_cohort_covariates;
