@@ -51,8 +51,8 @@
 #' @param createExposureCohorts                Create the tables with the exposure cohorts?
 #' @param createOutcomeCohorts                 Create the tables with the outcome cohorts?
 #' @param createNegativeControlCohorts         Create the tables with the negative control outcome cohorts?
-#' @param fetchAllDataFromServer               Fetch all relevant data from the server? (patient covariates etc.)
 #' @param generateCensorAnalysisObjects        Manipulate cohort data into data frames for censor weight analysis?
+#' @param pullAnalysisCohortsFromServer        Join exposure-outcome cohorts and download from server?
 #' @param runCensorWeightAnalysis              Run the clone censor weight analysis for TTE? 
 #' @param exportToCsv                          Export all results to CSV files?
 #' @param maxCores                             How many parallel cores should be used? If more cores
@@ -73,8 +73,8 @@ execute <- function(connectionDetails,
                     createExposureCohorts = TRUE,
                     createOutcomeCohorts = TRUE,
                     createNegativeControlCohorts = TRUE,
-                    fetchAllDataFromServer = TRUE,
                     generateCensorAnalysisObjects = TRUE,
+                    pullAnalysisCohortsFromServer = TRUE,
                     runCensorWeightAnalysis = TRUE,
                     exportToCsv = TRUE,
                     maxCores = 4) {
@@ -129,19 +129,29 @@ execute <- function(connectionDetails,
                                   outputPath = outputFolder)
   }
   
-  if (fetchAllDataFromServer) {
-    fetchAllDataFromServer(connectionDetails = connectionDetails,
-                           cdmDatabaseSchema = cdmDatabaseSchema,
-                           oracleTempSchema = oracleTempSchema,
-                           cohortDatabaseSchema = cohortDatabaseSchema,
-                           tablePrefix = tablePrefix,
-                           outputFolder = outputFolder,
-                           studyEndDate = studyEndDate,
-                           useSample = FALSE)
+  if (generateCensorAnalysisObjects) {
+    ## join the birth cohort and the PCV cohort
+    deriveBirthVaccinationCohort(connectionDetails = connectionDetails,
+                                 cohortDatabaseSchema = cohortDatabaseSchema,
+                                 cohortTableName = paste(tablePrefix, "exposure_cohort", sep = "_"))
+    
+    ## adding covariates to big cohort table
+    queryCohortCovariates(connectionDetails = connectionDetails, 
+                          cdmDatabaseSchema = cdmDatabaseSchema,
+                          cohortDatabaseSchema = cohortDatabaseSchema,
+                          resultCohortTableName = paste(tablePrefix, "cohort_covariates", sep = "_"),
+                          outputPath = outputFolder)
   }
   
-  if (generateCensorAnalysisObjects) {
-    stop("not implemented")
+  if (pullAnalysisCohortsFromServer) {
+    ## join the exposure-outcome cohort tables and download to local csv files
+    pullAllJointCohorts(connectionDetails = connectionDetails,
+                        cohortDatabaseSchema = cohortDatabaseSchema,
+                        exposureCohortTableName = paste(tablePrefix, "cohort_covariates", sep = "_"),
+                        outcomeCohortTableName = paste(tablePrefix, "outcome_cohort", sep = "_"), 
+                        outcomeCohortListFile = paste(tablePrefix, "outcome_cohort_cohortCounts.csv", sep = "_"),
+                        outputPath = outputFolder,
+                        pullFromServer = TRUE)
   }
   
   if (runCensorWeightAnalysis) {
