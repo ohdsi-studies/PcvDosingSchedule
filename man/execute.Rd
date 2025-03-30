@@ -19,8 +19,8 @@ execute(
   createExposureCohorts = TRUE,
   createOutcomeCohorts = TRUE,
   createNegativeControlCohorts = TRUE,
-  fetchAllDataFromServer = TRUE,
   generateCensorAnalysisObjects = TRUE,
+  pullAnalysisCohortsFromServer = TRUE,
   runCensorWeightAnalysis = TRUE,
   exportToCsv = TRUE,
   maxCores = 4
@@ -73,9 +73,9 @@ or fractions when exporting to CSV.}
 
 \item{createNegativeControlCohorts}{Create the tables with the negative control outcome cohorts?}
 
-\item{fetchAllDataFromServer}{Fetch all relevant data from the server? (patient covariates etc.)}
-
 \item{generateCensorAnalysisObjects}{Manipulate cohort data into data frames for censor weight analysis?}
+
+\item{pullAnalysisCohortsFromServer}{Join exposure-outcome cohorts and download from server?}
 
 \item{runCensorWeightAnalysis}{Run the clone censor weight analysis for TTE?}
 

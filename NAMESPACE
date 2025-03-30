@@ -3,4 +3,7 @@
 export(createCohortsFromFiles)
 export(createNegativeControlsCohorts)
 export(deriveBirthVaccinationCohort)
+export(execute)
+export(joinExposureOutcomeCohorts)
+export(pullAllJointCohorts)
 export(queryCohortCovariates)
