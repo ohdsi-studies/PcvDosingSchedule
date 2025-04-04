@@ -3,15 +3,6 @@ title: "| RESEARCH PROTOCOL\n| \n| DOSETTE: DOsing Schedule Evaluation using Tar
 fontsize: 12pt
 geometry: margin=1in
 output:
-  bookdown::pdf_document2:
-    keep_tex: yes
-    latex_engine: xelatex
-    md_extensions: +raw_attribute
-    number_sections: yes
-    includes:
-      before_body: title.tex
-  word_document:
-    reference_docx: ohdsi-protocol-style.docx
   bookdown::html_document2:
     df_print: paged
     toc: yes
@@ -20,6 +11,15 @@ output:
     number_sections: yes
     number_tables: yes
     css: style.css
+  word_document:
+    reference_docx: ohdsi-protocol-style.docx
+  bookdown::pdf_document2:
+    keep_tex: yes
+    latex_engine: xelatex
+    md_extensions: +raw_attribute
+    number_sections: yes
+    includes:
+      before_body: title.tex
 header-includes:
 - \usepackage[numbers,sort&compress]{natbib}
 - \usepackage{booktabs}

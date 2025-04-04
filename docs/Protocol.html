@@ -2997,8 +2997,8 @@ border-radius: 0px;
 
 <h1 class="title toc-ignore"><div class="line-block">RESEARCH PROTOCOL<br />
 <br />
-Comparative Effectiveness of Different Dosing Schedules of Pneumococcal Conjugate Vaccines: Target Trial Emulation</div></h1>
-<h3 class="subtitle">Version: 0.0.4</h3>
+DOSETTE: DOsing Schedule Evaluation using Target Trial Emulation, for Childhood Pneumococcal Conjugate Vaccines</div></h1>
+<h3 class="subtitle">Version: 0.1.0</h3>
 
 </div>
 
@@ -3239,10 +3239,18 @@ Planned / actual date
 <tbody>
 <tr>
 <td style="text-align:left;">
-Draft of study protocol
+1st draft of study protocol
 </td>
 <td style="text-align:left;">
 09/20/2024
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Updated study protocol
+</td>
+<td style="text-align:left;">
+17/02/2025
 </td>
 </tr>
 </tbody>
@@ -3287,7 +3295,9 @@ We are actively recruiting OHDSI community data partner through OHDSI’s standa
 </div>
 <div id="study-population" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> Study Population</h2>
-<p>Vaccine-eligible children born between 2010 (when the PCV13 was introduced into the routine childhood immunization program in the U.S.) and 2023, who received at least one dose of PCV13 by the time they turn 15 months of age. In the US., wherever state-level location information is available, the main study will only cover 37 states (states other than Alaska, Idaho, Massachusetts, Maine, North Dakota, New Hampshire, New Mexico, Oregon, Rhode Island, Vermont, Washington, Wisconsin, and Wyoming) since the thirteen states with universal childhood vaccination programs will have incomplete insurance claims records;our sensitivity analysis will include all 50 states in the US.</p>
+<p>Vaccine-eligible children born between 2010 (when the PCV13 was introduced into the routine childhood immunization program in the U.S.) and 2023, who did not experience any severe allergic reactions to vaccination by day 37 after birth (one day before the recommended earliest day for the first dose PCV13).
+While comparing effectiveness of different dosing schedules, we further restrict to those children who received at least one dose of PCV13 by the time they turn 15 months of age (i.e., 456 days after birth).
+In the US., wherever state-level location information is available, the main study will only cover 37 states (states other than Alaska, Idaho, Massachusetts, Maine, North Dakota, New Hampshire, New Mexico, Oregon, Rhode Island, Vermont, Washington, Wisconsin, and Wyoming) since the thirteen states with universal childhood vaccination programs will have incomplete insurance claims records;our sensitivity analysis will include all 50 states in the US.</p>
 </div>
 <div id="exposure-comparators" class="section level2" number="8.4">
 <h2><span class="header-section-number">8.4</span> Exposure Comparators</h2>
@@ -3458,276 +3468,42 @@ We will make all study results publicly available using interactive RShinyApps, 
 <h2><span class="header-section-number">A.1</span> All PCV 13 Vaccinees By 15 Months</h2>
 <div id="cohort-entry-events" class="section level3" number="14.1.1">
 <h3><span class="header-section-number">A.1.1</span> Cohort Entry Events</h3>
-<p>People with continuous observation of 1 days after event enter the cohort when observing any of the following:</p>
+<p>People with continuous observation of 30 days before and 1 days after event may enter the cohort when observing any of the following:</p>
 <ol style="list-style-type: decimal">
-<li><p>drug exposures of ‘PCV13’, starting between January 1, 2010 and December 31, 2023; with all of the following criteria:</p></li>
-<li><p>having no drug exposures of ‘all other PCV’.</p></li>
-<li><p>having exactly 1 condition occurrence of ‘Newborn event’, starting anytime on or before ‘PCV13’ start date; starting on or after January 1, 2010; with all of the following criteria:</p>
+<li>drug exposures of ‘PCV13’, starting on or after January 1, 2010.</li>
+</ol>
+</div>
+<div id="additional-inclusion-criteria" class="section level3" number="14.1.2">
+<h3><span class="header-section-number">A.1.2</span> Additional Inclusion Criteria</h3>
+<div id="i.-age-2-to-exclude-older-vaccinees-exclude-older-patients-by-restricting-on-babies" class="section level4 unnumbered">
+<h4>I. Age &lt;= 2 to exclude older vaccinees: Exclude older patients by restricting on babies</h4>
+<p>Entry events with the following event criteria: who are &lt;= 2 years old.
+#### II. Newborn event within 15 months prior to vaccination {-}</p>
+<p>Entry events with any of the following criteria:</p>
 <ol style="list-style-type: decimal">
-<li>having no condition occurrences of ‘Anaphylactic reaction to vaccination’, starting between 0 days after and 37 days after ‘Newborn event’ start date.</li>
-<li>having no condition occurrences of ‘Severe combined immunodeficiency’, starting between 0 days after and 37 days after ‘Newborn event’ start date.</li>
-<li>having at least 1 drug exposure of ‘PCV13’, starting between 0 days after and 456 days after ‘Newborn event’ start date.</li>
+<li><p>having at least 1 condition occurrence of ‘Newborn event’, starting between 456 days before and 0 days after cohort entry start date; starting between January 1, 2010 and December 31, 2023; with all of the following criteria:</p>
+<ol style="list-style-type: decimal">
+<li>having no condition occurrences of ‘Anaphylactic reaction to vaccination’, starting between 0 days before and 37 days after ‘Newborn event’ start date.</li>
+<li>having no condition occurrences of ‘Severe combined immunodeficiency’, starting between 0 days before and 37 days after ‘Newborn event’ start date.</li>
+</ol></li>
+<li><p>having at least 1 observation of ‘liveborn event (observation)’, starting between 456 days before and 0 days after cohort entry start date; starting between January 1, 2010 and December 31, 2023; with all of the following criteria:</p>
+<ol style="list-style-type: decimal">
+<li>having no condition occurrences of ‘Anaphylactic reaction to vaccination’, starting between 0 days before and 37 days after ‘liveborn event (observation)’ start date.</li>
+<li>having no condition occurrences of ‘Severe combined immunodeficiency’, starting between 0 days before and 37 days after ‘liveborn event (observation)’ start date.</li>
 </ol></li>
 </ol>
 </div>
-<div id="cohort-exit" class="section level3" number="14.1.2">
-<h3><span class="header-section-number">A.1.2</span> Cohort Exit</h3>
+</div>
+<div id="cohort-exit" class="section level3" number="14.1.3">
+<h3><span class="header-section-number">A.1.3</span> Cohort Exit</h3>
 <p>The cohort end date will be offset from index event’s start date plus 1 day.</p>
 </div>
-<div id="cohort-eras" class="section level3" number="14.1.3">
-<h3><span class="header-section-number">A.1.3</span> Cohort Eras</h3>
+<div id="cohort-eras" class="section level3" number="14.1.4">
+<h3><span class="header-section-number">A.1.4</span> Cohort Eras</h3>
 <p>Remaining events will be combined into cohort eras if they are within 3 days of each other.</p>
 </div>
-<div id="concept-pcv13" class="section level3" number="14.1.4">
-<h3><span class="header-section-number">A.1.4</span> Concept: PCV13</h3>
-<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-Concept ID
-</th>
-<th style="text-align:left;">
-Concept Name
-</th>
-<th style="text-align:left;">
-Code
-</th>
-<th style="text-align:left;">
-Vocabulary
-</th>
-<th style="text-align:left;">
-Excluded
-</th>
-<th style="text-align:left;">
-Descendants
-</th>
-<th style="text-align:left;">
-Mapped
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-40213198
-</td>
-<td style="text-align:left;">
-pneumococcal conjugate vaccine, 13 valent
-</td>
-<td style="text-align:left;">
-133
-</td>
-<td style="text-align:left;">
-CVX
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-YES
-</td>
-<td style="text-align:left;">
-YES
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="concept-all-other-pcv" class="section level3" number="14.1.5">
-<h3><span class="header-section-number">A.1.5</span> Concept: all other PCV</h3>
-<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-Concept ID
-</th>
-<th style="text-align:left;">
-Concept Name
-</th>
-<th style="text-align:left;">
-Code
-</th>
-<th style="text-align:left;">
-Vocabulary
-</th>
-<th style="text-align:left;">
-Excluded
-</th>
-<th style="text-align:left;">
-Descendants
-</th>
-<th style="text-align:left;">
-Mapped
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-40213199
-</td>
-<td style="text-align:left;">
-pneumococcal conjugate vaccine, 7 valent
-</td>
-<td style="text-align:left;">
-100
-</td>
-<td style="text-align:left;">
-CVX
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-2213447
-</td>
-<td style="text-align:left;">
-Pneumococcal conjugate vaccine, 7 valent, for intramuscular use
-</td>
-<td style="text-align:left;">
-90669
-</td>
-<td style="text-align:left;">
-CPT4
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-40213195
-</td>
-<td style="text-align:left;">
-pneumococcal conjugate vaccine, 10 valent (non-US)
-</td>
-<td style="text-align:left;">
-177
-</td>
-<td style="text-align:left;">
-CVX
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-777317
-</td>
-<td style="text-align:left;">
-Pneumococcal conjugate vaccine, 15 valent (PCV15), for intramuscular use
-</td>
-<td style="text-align:left;">
-90671
-</td>
-<td style="text-align:left;">
-CPT4
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-777318
-</td>
-<td style="text-align:left;">
-Pneumococcal conjugate vaccine, 20 valent (PCV20), for intramuscular use
-</td>
-<td style="text-align:left;">
-90677
-</td>
-<td style="text-align:left;">
-CPT4
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-702674
-</td>
-<td style="text-align:left;">
-Pneumococcal conjugate vaccine 15-valent (PCV15), polysaccharide CRM197 conjugate, adjuvant, preservative free
-</td>
-<td style="text-align:left;">
-215
-</td>
-<td style="text-align:left;">
-CVX
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-702675
-</td>
-<td style="text-align:left;">
-Pneumococcal conjugate vaccine 20-valent (PCV20), polysaccharide CRM197 conjugate, adjuvant, preservative free
-</td>
-<td style="text-align:left;">
-216
-</td>
-<td style="text-align:left;">
-CVX
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-<td style="text-align:left;">
-NO
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="concept-anaphylactic-reaction-to-vaccination" class="section level3" number="14.1.6">
-<h3><span class="header-section-number">A.1.6</span> Concept: Anaphylactic reaction to vaccination</h3>
+<div id="concept-anaphylactic-reaction-to-vaccination" class="section level3" number="14.1.5">
+<h3><span class="header-section-number">A.1.5</span> Concept: Anaphylactic reaction to vaccination</h3>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -3781,8 +3557,8 @@ NO
 </tbody>
 </table>
 </div>
-<div id="concept-newborn-event" class="section level3" number="14.1.7">
-<h3><span class="header-section-number">A.1.7</span> Concept: Newborn event</h3>
+<div id="concept-newborn-event" class="section level3" number="14.1.6">
+<h3><span class="header-section-number">A.1.6</span> Concept: Newborn event</h3>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -3836,8 +3612,8 @@ NO
 </tbody>
 </table>
 </div>
-<div id="concept-severe-combined-immunodeficiency" class="section level3" number="14.1.8">
-<h3><span class="header-section-number">A.1.8</span> Concept: Severe combined immunodeficiency</h3>
+<div id="concept-severe-combined-immunodeficiency" class="section level3" number="14.1.7">
+<h3><span class="header-section-number">A.1.7</span> Concept: Severe combined immunodeficiency</h3>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -3890,6 +3666,116 @@ NO
 </tr>
 </tbody>
 </table>
+</div>
+<div id="concept-pcv13" class="section level3" number="14.1.8">
+<h3><span class="header-section-number">A.1.8</span> Concept: PCV13</h3>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Concept ID
+</th>
+<th style="text-align:left;">
+Concept Name
+</th>
+<th style="text-align:left;">
+Code
+</th>
+<th style="text-align:left;">
+Vocabulary
+</th>
+<th style="text-align:left;">
+Excluded
+</th>
+<th style="text-align:left;">
+Descendants
+</th>
+<th style="text-align:left;">
+Mapped
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+40213198
+</td>
+<td style="text-align:left;">
+pneumococcal conjugate vaccine, 13 valent
+</td>
+<td style="text-align:left;">
+133
+</td>
+<td style="text-align:left;">
+CVX
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:left;">
+NO
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="concept-liveborn-event-observation" class="section level3" number="14.1.9">
+<h3><span class="header-section-number">A.1.9</span> Concept: liveborn event (observation)</h3>
+<table class="table table-striped" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Concept ID
+</th>
+<th style="text-align:left;">
+Concept Name
+</th>
+<th style="text-align:left;">
+Code
+</th>
+<th style="text-align:left;">
+Vocabulary
+</th>
+<th style="text-align:left;">
+Excluded
+</th>
+<th style="text-align:left;">
+Descendants
+</th>
+<th style="text-align:left;">
+Mapped
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+40482735
+</td>
+<td style="text-align:left;">
+Liveborn born in hospital
+</td>
+<td style="text-align:left;">
+442311008
+</td>
+<td style="text-align:left;">
+SNOMED
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:left;">
+YES
+</td>
+</tr>
+</tbody>
+</table>
 <hr style="border:2px solid gray">
 </hr>
 </div>
@@ -3898,7 +3784,7 @@ NO
 <h2><span class="header-section-number">A.2</span> All Liveborn Babies Eligible for Vaccination</h2>
 <div id="cohort-entry-events-1" class="section level3" number="14.2.1">
 <h3><span class="header-section-number">A.2.1</span> Cohort Entry Events</h3>
-<p>People with continuous observation of 1 days after event enter the cohort when observing any of the following:</p>
+<p>People with continuous observation of 37 days after event may enter the cohort when observing any of the following:</p>
 <ol style="list-style-type: decimal">
 <li><p>condition occurrences of ‘Newborn event’, starting on or after January 1, 2010; with all of the following criteria:</p></li>
 <li><p>having no condition occurrences of ‘Anaphylactic reaction to vaccination’, starting between 0 days before and 37 days after ‘Newborn event’ start date.</p></li>
@@ -3906,16 +3792,23 @@ NO
 </ol>
 <p>Limit cohort entry events to the earliest event per person.</p>
 </div>
-<div id="cohort-exit-1" class="section level3" number="14.2.2">
-<h3><span class="header-section-number">A.2.2</span> Cohort Exit</h3>
+<div id="additional-inclusion-criteria-1" class="section level3" number="14.2.2">
+<h3><span class="header-section-number">A.2.2</span> Additional Inclusion Criteria</h3>
+<div id="i.-age-1-make-sure-its-newborn-rather-than-mother-giving-birth" class="section level4 unnumbered">
+<h4>I. Age &lt; 1: Make sure it’s newborn, rather than mother giving birth</h4>
+<p>Entry events with the following event criteria: who are &lt;= 1 years old.
+### Cohort Exit</p>
 <p>The person also exists the cohort at the end of continuous observation.</p>
+<p>The person also exists the cohort when encountering any of the following events:</p>
+<ol style="list-style-type: decimal">
+<li>visit occurrences of any visit, who are &gt;= 5 years old.
+### Cohort Eras</li>
+</ol>
+<p>Remaining events will be combined into cohort eras if they are within 1 days of each other.</p>
 </div>
-<div id="cohort-eras-1" class="section level3" number="14.2.3">
-<h3><span class="header-section-number">A.2.3</span> Cohort Eras</h3>
-<p>Remaining events will be combined into cohort eras if they are within 0 days of each other.</p>
 </div>
-<div id="concept-newborn-event-1" class="section level3" number="14.2.4">
-<h3><span class="header-section-number">A.2.4</span> Concept: Newborn event</h3>
+<div id="concept-newborn-event-1" class="section level3" number="14.2.3">
+<h3><span class="header-section-number">A.2.3</span> Concept: Newborn event</h3>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -3966,11 +3859,34 @@ YES
 NO
 </td>
 </tr>
+<tr>
+<td style="text-align:left;">
+40482735
+</td>
+<td style="text-align:left;">
+Liveborn born in hospital
+</td>
+<td style="text-align:left;">
+442311008
+</td>
+<td style="text-align:left;">
+SNOMED
+</td>
+<td style="text-align:left;">
+NO
+</td>
+<td style="text-align:left;">
+YES
+</td>
+<td style="text-align:left;">
+NO
+</td>
+</tr>
 </tbody>
 </table>
 </div>
-<div id="concept-anaphylactic-reaction-to-vaccination-1" class="section level3" number="14.2.5">
-<h3><span class="header-section-number">A.2.5</span> Concept: Anaphylactic reaction to vaccination</h3>
+<div id="concept-anaphylactic-reaction-to-vaccination-1" class="section level3" number="14.2.4">
+<h3><span class="header-section-number">A.2.4</span> Concept: Anaphylactic reaction to vaccination</h3>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -4024,8 +3940,8 @@ NO
 </tbody>
 </table>
 </div>
-<div id="concept-severe-combined-immunodeficiency-1" class="section level3" number="14.2.6">
-<h3><span class="header-section-number">A.2.6</span> Concept: Severe combined immunodeficiency</h3>
+<div id="concept-severe-combined-immunodeficiency-1" class="section level3" number="14.2.5">
+<h3><span class="header-section-number">A.2.5</span> Concept: Severe combined immunodeficiency</h3>
 <table class="table table-striped" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -4095,7 +4011,7 @@ NO
 </ol>
 <p>Restrict entry events to</p>
 </div>
-<div id="additional-inclusion-criteria" class="section level3" number="15.1.2">
+<div id="additional-inclusion-criteria-2" class="section level3" number="15.1.2">
 <h3><span class="header-section-number">B.1.2</span> Additional Inclusion Criteria</h3>
 <div id="i.-has-inpatient-or-er-visit" class="section level4 unnumbered">
 <h4>I. Has Inpatient or ER visit</h4>
@@ -4111,11 +4027,11 @@ NO
 <p>Limit qualifying entry events to the all events per person.</p>
 </div>
 </div>
-<div id="cohort-exit-2" class="section level3" number="15.1.3">
+<div id="cohort-exit-1" class="section level3" number="15.1.3">
 <h3><span class="header-section-number">B.1.3</span> Cohort Exit</h3>
 <p>The cohort end date will be offset from index event’s end date plus 1 day.</p>
 </div>
-<div id="cohort-eras-2" class="section level3" number="15.1.4">
+<div id="cohort-eras-1" class="section level3" number="15.1.4">
 <h3><span class="header-section-number">B.1.4</span> Cohort Eras</h3>
 <p>Remaining events will be combined into cohort eras if they are within 0 days of each other.</p>
 </div>
@@ -4481,7 +4397,7 @@ NO
 </ol>
 <p>Restrict entry events to</p>
 </div>
-<div id="additional-inclusion-criteria-1" class="section level3" number="15.2.2">
+<div id="additional-inclusion-criteria-3" class="section level3" number="15.2.2">
 <h3><span class="header-section-number">B.2.2</span> Additional Inclusion Criteria</h3>
 <div id="i.-has-inpatient-or-er-visit-1" class="section level4 unnumbered">
 <h4>I. Has Inpatient or ER visit</h4>
@@ -4497,11 +4413,11 @@ NO
 <p>Limit qualifying entry events to the all events per person.</p>
 </div>
 </div>
-<div id="cohort-exit-3" class="section level3" number="15.2.3">
+<div id="cohort-exit-2" class="section level3" number="15.2.3">
 <h3><span class="header-section-number">B.2.3</span> Cohort Exit</h3>
 <p>The cohort end date will be offset from index event’s end date plus 1 day.</p>
 </div>
-<div id="cohort-eras-3" class="section level3" number="15.2.4">
+<div id="cohort-eras-2" class="section level3" number="15.2.4">
 <h3><span class="header-section-number">B.2.4</span> Cohort Eras</h3>
 <p>Remaining events will be combined into cohort eras if they are within 0 days of each other.</p>
 </div>
@@ -4775,7 +4691,7 @@ NO
 </ol>
 <p>Restrict entry events to</p>
 </div>
-<div id="additional-inclusion-criteria-2" class="section level3" number="15.3.2">
+<div id="additional-inclusion-criteria-4" class="section level3" number="15.3.2">
 <h3><span class="header-section-number">B.3.2</span> Additional Inclusion Criteria</h3>
 <div id="i.-has-inpatient-or-er-visit-2" class="section level4 unnumbered">
 <h4>I. Has Inpatient or ER visit</h4>
@@ -4791,11 +4707,11 @@ NO
 <p>Limit qualifying entry events to the all events per person.</p>
 </div>
 </div>
-<div id="cohort-exit-4" class="section level3" number="15.3.3">
+<div id="cohort-exit-3" class="section level3" number="15.3.3">
 <h3><span class="header-section-number">B.3.3</span> Cohort Exit</h3>
 <p>The cohort end date will be offset from index event’s end date plus 1 day.</p>
 </div>
-<div id="cohort-eras-4" class="section level3" number="15.3.4">
+<div id="cohort-eras-3" class="section level3" number="15.3.4">
 <h3><span class="header-section-number">B.3.4</span> Cohort Eras</h3>
 <p>Remaining events will be combined into cohort eras if they are within 0 days of each other.</p>
 </div>
@@ -5023,7 +4939,7 @@ NO
 </ol>
 <p>Restrict entry events to</p>
 </div>
-<div id="additional-inclusion-criteria-3" class="section level3" number="15.4.2">
+<div id="additional-inclusion-criteria-5" class="section level3" number="15.4.2">
 <h3><span class="header-section-number">B.4.2</span> Additional Inclusion Criteria</h3>
 <div id="i.-has-inpatient-or-er-visit-3" class="section level4 unnumbered">
 <h4>I. Has Inpatient or ER visit</h4>
@@ -5039,11 +4955,11 @@ NO
 <p>Limit qualifying entry events to the all events per person.</p>
 </div>
 </div>
-<div id="cohort-exit-5" class="section level3" number="15.4.3">
+<div id="cohort-exit-4" class="section level3" number="15.4.3">
 <h3><span class="header-section-number">B.4.3</span> Cohort Exit</h3>
 <p>The cohort end date will be offset from index event’s end date plus 1 day.</p>
 </div>
-<div id="cohort-eras-5" class="section level3" number="15.4.4">
+<div id="cohort-eras-4" class="section level3" number="15.4.4">
 <h3><span class="header-section-number">B.4.4</span> Cohort Eras</h3>
 <p>Remaining events will be combined into cohort eras if they are within 0 days of each other.</p>
 </div>
