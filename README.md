@@ -9,9 +9,9 @@ Target Trial Emulation
 - Tags: **-**
 - Study lead: Fan Bu and Kayoko Shioda
 - Study lead forums tag: **[fanbu](https://forums.ohdsi.org/u/fanbu)**
-- Study start date: **-**
+- Study start date: **Feb 01, 2025**
 - Study end date: **-**
-- Protocol: **-**
+- Protocol: **[protocol](https://ohdsi-studies.github.io/PcvDosingSchedule/Protocol)**
 - Publications: **-**
 - Results explorer: **-**
 
