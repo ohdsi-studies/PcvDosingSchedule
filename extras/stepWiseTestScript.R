@@ -72,7 +72,44 @@ joinExposureOutcomeCohorts(connectionDetails = conn,
                            pullFromServer = TRUE,
                            outputPath = outputFolder)
 
-## test the `execute` main function
+## test the TTE analysis function by Kayoko's group 
+out <- data_tte_process(input_data = "", #input data file 
+                        data_folder = "", # insert your path, with a "/" at the end.
+                        #result_folder = "", # Can remove hash if we want to save output
+                        
+                        # Simulation parameters
+                        nsims = 1000, #number of bootstrap simulations
+                        seed = 123,
+                        
+                        #----------Recommended 3+1 Protocol----------#
+                        
+                        # Define the interval for the timing of PCV Dose 1
+                        rec_dose1_start = 38, # in days 
+                        rec_dose1_end = 92, # in days
+                        
+                        # Define the interval for the timing of PCV Dose 2
+                        rec_dose2_start = 113,
+                        rec_dose2_end = 141,
+                        
+                        # Define the interval for the timing of PCV Dose 3
+                        rec_dose3_start = 173,
+                        rec_dose3_end = 201,
+                        
+                        # Define the interval for the timing of PCV Dose 4
+                        rec_dose4_start = 358,
+                        rec_dose4_end = 476,
+                        
+                        #----------Reduced 1+1 Protocol----------#
+                        
+                        # Define the interval for the timing of PCV Dose 1
+                        redu_dose1_start = 38,
+                        redu_dose1_end = 92,
+                        
+                        # Define the interval for the timing of PCV Dose 2
+                        redu_dose2_start = 358,
+                        redu_dose2_end = 476)
+
+## test the `execute` main function ----
 ## (first testing the pulling exposure-outcome cohort table function)
 execute(connectionDetails = conn,
         cdmDatabaseSchema = cdmDatabaseSchema,
