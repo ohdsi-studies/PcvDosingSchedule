@@ -3,6 +3,11 @@
 ## Test script for package development
 
 library(PCVDosingSchedule)
+library(dplyr)
+library(readr)
+library(broom)
+library(survival)
+library(gtsummary)
 
 Sys.setenv(DATABASECONNECTOR_JAR_FOLDER="E:/Drivers")
 options(andromedaTempFolder = "E:/andromedaTemp")
@@ -73,8 +78,16 @@ joinExposureOutcomeCohorts(connectionDetails = conn,
                            outputPath = outputFolder)
 
 ## test the TTE analysis function by Kayoko's group 
-out <- data_tte_process(input_data = "", #input data file 
-                        data_folder = "", # insert your path, with a "/" at the end.
+
+cohortFolder = file.path(outputFolder, "cohorts")
+testFile = "cohorts_outcome_11.csv"
+
+# d <- readr::read_csv(file.path(cohortFolder, testFile))
+# names(d) = SqlRender::snakeCaseToCamelCase(names(d))
+# readr::write_csv(d, file.path(cohortFolder, testFile))
+  
+out <- data_tte_process(input_data = testFile, #input data file 
+                        data_folder = cohortFolder, # insert your path, with a "/" at the end.
                         #result_folder = "", # Can remove hash if we want to save output
                         
                         # Simulation parameters

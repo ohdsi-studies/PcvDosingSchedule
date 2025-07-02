@@ -18,12 +18,16 @@
 # Additional modification: 04/17/2025 - Modified plot data objects to summarize across simulations and generate 95% CIs
 # Additional modification: 04/18/2025 - Reorganized plot data object order. Created function to select formula based on the creation of state
 
+library(tidyverse)
+library(survival)
+library(broom)
+library(gtsummary)
 
 #------------------------------------------------------------------------------#
 # Load data
 #------------------------------------------------------------------------------#
 
-#create function: 
+#' @export
 data_tte_process <- function(input_data = NULL, 
                              data_folder = NULL,
                              #result_folder = NULL, # Can comment back in if we want to save results
@@ -58,32 +62,34 @@ data_tte_process <- function(input_data = NULL,
                              redu_dose2_start = 358,
                              redu_dose2_end = 476){
   
-  require(tidyverse)
-  require(survival)
-  require(broom)
-  require(gtsummary)
-  
   # Specify file paths
-  data_folder <- data_folder  # This is where the dataset is saved
-  #result_folder  <- result_folder # This is where the output files will be saved later in this script
-  # dir.create(result_folder, recursive = TRUE) # Create a result folder 
+  # data_folder <- data_folder  # This is where the dataset is saved
+  
+  # result_folder  <- result_folder # This is where the output files will be saved later in this script
+  # if(!dir.exists(result_folder)){
+  #   dir.create(result_folder, recursive = TRUE)
+  # }
   
   # Load the data 
-  d <- input_data
-  d <- read_csv(paste0(data_folder, "fakedata.csv"),
+  d <- readr::read_csv(file.path(data_folder, input_data), 
+  # d <- read_csv(paste0(data_folder, "fakedata.csv"),
                 
                 # Convert date variables to Date
                 col_types = cols(dob = col_date(format = "%m/%d/%y"), 
-                                 date_pcv1 = col_date(format = "%m/%d/%y"), 
-                                 date_pcv2 = col_date(format = "%m/%d/%y"), 
-                                 date_pcv3 = col_date(format = "%m/%d/%y"), 
-                                 date_pcv4 = col_date(format = "%m/%d/%y"), 
-                                 date_outcome = col_date(format = "%m/%d/%y"), 
-                                 date_admin_censor = col_date(format = "%m/%d/%y"))
+                                 datePcv1 = col_date(format = "%m/%d/%y"), 
+                                 datePcv2 = col_date(format = "%m/%d/%y"), 
+                                 datePcv3 = col_date(format = "%m/%d/%y"), 
+                                 datePcv4 = col_date(format = "%m/%d/%y"), 
+                                 dateOutcome = col_date(format = "%m/%d/%y"), 
+                                 dateAdminCensor = col_date(format = "%m/%d/%y"))
   ) %>% 
     
     # Remove rows that do not have any data
-    filter(rowSums(is.na(.)) != ncol(.))
+    filter(rowSums(is.na(.)) != ncol(.)) %>% 
+    
+    # change col names to snake cases
+    rename(date_pcv1 = datePcv1, date_pcv2 = datePcv2, date_pcv3 = datePcv3, 
+           date_pcv4 = datePcv4, date_outcome = dateOutcome, date_admin_censor = dateAdminCensor)
   
   #------------------------------------------------------------------------------#
   # Calculate the age (in days) at each event 
