@@ -73,41 +73,47 @@ joinExposureOutcomeCohorts(connectionDetails = conn,
                            outputPath = outputFolder)
 
 ## test the TTE analysis function by Kayoko's group 
-out <- data_tte_process(input_data = "", #input data file 
-                        data_folder = "", # insert your path, with a "/" at the end.
-                        #result_folder = "", # Can remove hash if we want to save output
+
+testOutcomeFile = "cohorts_outcome_11.csv"
+cohortPath = file.path(outputFolder, "cohorts")
+
+out <- data_tte_process(inputFilePath = file.path(cohortPath, testOutcomeFile), 
+                        outputPath = file.path(outputFolder, "tteResults"),
                         
                         # Simulation parameters
-                        nsims = 1000, #number of bootstrap simulations
-                        seed = 123,
-                        
-                        #----------Recommended 3+1 Protocol----------#
+                        nsims = 1000,
+                        seed = 42,
                         
                         # Define the interval for the timing of PCV Dose 1
-                        rec_dose1_start = 38, # in days 
-                        rec_dose1_end = 92, # in days
+                        recDose1Start = 38, # in days 
+                        recDose1End = 92, # in days
                         
                         # Define the interval for the timing of PCV Dose 2
-                        rec_dose2_start = 113,
-                        rec_dose2_end = 141,
+                        recDose2Start = 113,
+                        recDose2End = 141,
                         
                         # Define the interval for the timing of PCV Dose 3
-                        rec_dose3_start = 173,
-                        rec_dose3_end = 201,
+                        recDose3Start = 173,
+                        recDose3End = 201,
                         
-                        # Define the interval for the timing of PCV Dose 4
-                        rec_dose4_start = 358,
-                        rec_dose4_end = 476,
+                        # Define the interval for the timing of PCV Dose 4 (Booster dose)
+                        recDose4Start = 358,
+                        recDose4End = 476,
                         
                         #----------Reduced 1+1 Protocol----------#
                         
                         # Define the interval for the timing of PCV Dose 1
-                        redu_dose1_start = 38,
-                        redu_dose1_end = 92,
+                        reduDose1Start = 38,
+                        reduDose1End = 92,
                         
-                        # Define the interval for the timing of PCV Dose 2
-                        redu_dose2_start = 358,
-                        redu_dose2_end = 476)
+                        # Define the interval for the timing of PCV Dose 2 (Booster dose)
+                        reduDose2Start = 358,
+                        reduDose2End = 476,
+                        
+                        #---------- Modeling ----------#
+                        
+                        # Establish acceptable threshold for missing data in models 
+                        missingnessThreshold = 0.70)
 
 ## test the `execute` main function ----
 ## (first testing the pulling exposure-outcome cohort table function)
