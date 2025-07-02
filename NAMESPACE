@@ -2,9 +2,11 @@
 
 export(createCohortsFromFiles)
 export(createNegativeControlsCohorts)
+export(dataTTEprocess)
 export(data_tte_process)
 export(deriveBirthVaccinationCohort)
 export(execute)
 export(joinExposureOutcomeCohorts)
 export(pullAllJointCohorts)
 export(queryCohortCovariates)
+export(runTTEBatch)
