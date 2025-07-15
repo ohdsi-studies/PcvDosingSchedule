@@ -78,8 +78,12 @@ joinExposureOutcomeCohorts(connectionDetails = conn,
                            outputPath = outputFolder)
 
 ## test the TTE analysis function by Kayoko's group 
-testOutcomeFile = "cohorts_outcome_11.csv"
+# testOutcomeFile = "cohorts_outcome_11.csv"
+testOutcomeFile = "cohorts_outcome_12.csv"
 cohortPath = file.path(outputFolder, "cohorts")
+
+### time the analysis execution... 
+system.time(
 
 dataTTEprocess(inputFilePath = file.path(cohortPath, testOutcomeFile), 
                outputPath = file.path(outputFolder, "tteResults"),
@@ -117,6 +121,7 @@ dataTTEprocess(inputFilePath = file.path(cohortPath, testOutcomeFile),
                
                # Establish acceptable threshold for missing data in models 
                missingnessThreshold = 0.70)
+)
 
 ## test the `execute` main function ----
 ## (first testing the pulling exposure-outcome cohort table function)
