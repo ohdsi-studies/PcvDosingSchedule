@@ -155,22 +155,25 @@ execute <- function(connectionDetails,
   }
   
   if (runCensorWeightAnalysis) {
-    stop("not implemented")
+    cohortFolder = file.path(outputFolder, "cohorts")
+    tteOutputFolder = file.path(outputFolder, "tteResults")
+    
+    runTTEBatch(cohortPath = cohortFolder, 
+                outputPath = NULL, 
+                nsims = 200, 
+                seed = 351)
+    
   }
+
   
   if (exportToCsv) {
-    stop("not implemented")
+    tteOutputFolder = file.path(outputFolder, "tteResults")
+    zip::zip(zipfile = file.path(tteOutputFolder, "allResults.zip"), 
+             files = list.files(tteOutputFolder, full.names = TRUE))
     
-    # exportResults(indicationId = indicationId,
-    #               outputFolder = outputFolder,
-    #               databaseId = databaseId,
-    #               databaseName = databaseName,
-    #               databaseDescription = databaseDescription,
-    #               minCellCount = minCellCount,
-    #               runSections = runSections,
-    #               maxCores = maxCores,
-    #               exportSettings = exportSettings)
+    ParallelLogger::logInfo(paste("All TTE results are compressed at", file.path(tteOutputFolder, "allResults.zip")))
   }
+
   
   ParallelLogger::logInfo("Finished execute() for DOSETTE studies")
 }
