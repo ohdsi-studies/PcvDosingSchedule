@@ -8,7 +8,7 @@ Depends:
     R (>= 4.3),
     DatabaseConnector (>= 5.0.0)
 Imports:
-	SqlRender (>= 1.6.6),
+	  SqlRender (>= 1.6.6),
     FeatureExtraction (>= 3.0.1),
     ParallelLogger (>= 3.0.0),
     CohortGenerator (>= 0.11.0),
