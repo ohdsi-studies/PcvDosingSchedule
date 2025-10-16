@@ -46,4 +46,4 @@ How to run
 
 4. In RStudio, select 'Build' then 'Install and Restart' to install the `PCVDosingSchedule` package.
 
-5. To execute the study, go to `extras/CodeToRunTemplate.R`, customize the first blocks of code given your data server crendentials and local environment (don't forget to update your database metadata and local output directory!), and run the code block with the `execute()` function.
+5. To execute the study, go to `extras/CodeToRunTemplate.R`, customize the first block of code given your data server crendentials and local environment (don't forget to update your database metadata and local output directory!), and run the code block with the `execute()` function.
