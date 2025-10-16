@@ -52,6 +52,7 @@ dataTTEprocess <- function(inputFilePath,
                              # Establish acceptable threshold for missing data in models 
                              missingnessThreshold = 0.70){
   
+ 
   # Create output path if non-existent
   if(!dir.exists(outputPath)){
     dir.create(outputPath)
@@ -59,7 +60,13 @@ dataTTEprocess <- function(inputFilePath,
   
   
   # Load the data 
-  d <- readr::read_csv(intputFilePath)
+  d <- readr::read_csv(inputFilePath) %>%
+    rename(date_pcv1 = datePcv1,
+           date_pcv2 = datePcv2,
+           date_pcv3 = datePcv3,
+           date_pcv4 = datePcv4,
+           date_outcome = dateOutcome,
+           date_admin_censor = dateAdminCensor)
 
   
   d$dob <- as.Date(d$dob, format = "%m/%d/%y") 

@@ -3,6 +3,11 @@
 ## Test script for package development
 
 library(PCVDosingSchedule)
+library(dplyr)
+library(readr)
+library(broom)
+library(survival)
+library(gtsummary)
 
 Sys.setenv(DATABASECONNECTOR_JAR_FOLDER="E:/Drivers")
 options(andromedaTempFolder = "E:/andromedaTemp")
@@ -73,47 +78,50 @@ joinExposureOutcomeCohorts(connectionDetails = conn,
                            outputPath = outputFolder)
 
 ## test the TTE analysis function by Kayoko's group 
-
-testOutcomeFile = "cohorts_outcome_11.csv"
+# testOutcomeFile = "cohorts_outcome_11.csv"
+testOutcomeFile = "cohorts_outcome_12.csv"
 cohortPath = file.path(outputFolder, "cohorts")
 
-out <- data_tte_process(inputFilePath = file.path(cohortPath, testOutcomeFile), 
-                        outputPath = file.path(outputFolder, "tteResults"),
-                        
-                        # Simulation parameters
-                        nsims = 1000,
-                        seed = 42,
-                        
-                        # Define the interval for the timing of PCV Dose 1
-                        recDose1Start = 38, # in days 
-                        recDose1End = 92, # in days
-                        
-                        # Define the interval for the timing of PCV Dose 2
-                        recDose2Start = 113,
-                        recDose2End = 141,
-                        
-                        # Define the interval for the timing of PCV Dose 3
-                        recDose3Start = 173,
-                        recDose3End = 201,
-                        
-                        # Define the interval for the timing of PCV Dose 4 (Booster dose)
-                        recDose4Start = 358,
-                        recDose4End = 476,
-                        
-                        #----------Reduced 1+1 Protocol----------#
-                        
-                        # Define the interval for the timing of PCV Dose 1
-                        reduDose1Start = 38,
-                        reduDose1End = 92,
-                        
-                        # Define the interval for the timing of PCV Dose 2 (Booster dose)
-                        reduDose2Start = 358,
-                        reduDose2End = 476,
-                        
-                        #---------- Modeling ----------#
-                        
-                        # Establish acceptable threshold for missing data in models 
-                        missingnessThreshold = 0.70)
+### time the analysis execution... 
+system.time(
+
+dataTTEprocess(inputFilePath = file.path(cohortPath, testOutcomeFile), 
+               outputPath = file.path(outputFolder, "tteResults"),
+               # Simulation parameters
+               nsims = 1000,
+               seed = 42,
+               
+               # Define the interval for the timing of PCV Dose 1
+               recDose1Start = 38, # in days 
+               recDose1End = 92, # in days
+               
+               # Define the interval for the timing of PCV Dose 2
+               recDose2Start = 113,
+               recDose2End = 141,
+               
+               # Define the interval for the timing of PCV Dose 3
+               recDose3Start = 173,
+               recDose3End = 201,
+               
+               # Define the interval for the timing of PCV Dose 4 (Booster dose)
+               recDose4Start = 358,
+               recDose4End = 476,
+               
+               #----------Reduced 1+1 Protocol----------#
+               
+               # Define the interval for the timing of PCV Dose 1
+               reduDose1Start = 38,
+               reduDose1End = 92,
+               
+               # Define the interval for the timing of PCV Dose 2 (Booster dose)
+               reduDose2Start = 358,
+               reduDose2End = 476,
+               
+               #---------- Modeling ----------#
+               
+               # Establish acceptable threshold for missing data in models 
+               missingnessThreshold = 0.70)
+)
 
 ## test the `execute` main function ----
 ## (first testing the pulling exposure-outcome cohort table function)
